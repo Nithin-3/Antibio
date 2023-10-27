@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlxo7jmh34a6i"]
+
+[ext_resource type="Script" path="res://objs/Area2D.gd" id="1_ahv3g"]
+[ext_resource type="Texture2D" uid="uid://drd57hv8kw2ca" path="res://asset/enemy/spans/Untitled.jpg" id="2_j6j50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bymgb"]
+size = Vector2(65, 65)
+
+[node name="spans" type="Area2D"]
+script = ExtResource("1_ahv3g")
+metadata/_edit_group_ = true
+
+[node name="Untitled" type="Sprite2D" parent="."]
+scale = Vector2(0.283, 0.3)
+texture = ExtResource("2_j6j50")
+region_rect = Rect2(120, 77, 24, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_bymgb")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

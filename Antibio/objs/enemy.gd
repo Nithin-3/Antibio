@@ -1,15 +1,15 @@
 extends CharacterBody2D
+var bact_spreed = preload("res://objs/spans.tscn")
+var spre: bool = true
+func  _process(delta):
+	if spre:
+		spre =false
+		var node = bact_spreed.instantiate()
+		add_child(node)
+		move_child(node,0)
+		node.rotation_degrees = randf_range(1,359)
+		$Timer.start()
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	move()
-	move_and_slide()
-
-func  move():
-	pass
+func _on_timer_timeout():
+	spre = true

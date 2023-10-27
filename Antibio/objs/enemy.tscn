@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://c68rt8nvtwhsg"]
+[gd_scene load_steps=4 format=3 uid="uid://dbefq4kxxoj2u"]
 
-[ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_66rmj"]
-[ext_resource type="Script" path="res://objs/enemy.gd" id="1_bqg6l"]
+[ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
+[ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_njqvm"]
-radius = 103.31
+[sub_resource type="CircleShape2D" id="CircleShape2D_0l4ik"]
+radius = 336.006
 
-[node name="enemy" type="CharacterBody2D"]
-script = ExtResource("1_bqg6l")
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(591, 337)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_53wsn")
+metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_66rmj")
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_bkd30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_njqvm")
+position = Vector2(-18, -8)
+shape = SubResource("CircleShape2D_0l4ik")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
