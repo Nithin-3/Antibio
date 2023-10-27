@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbefq4kxxoj2u"]
+[gd_scene load_steps=5 format=3 uid="uid://dbefq4kxxoj2u"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
@@ -6,8 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l4ik"]
 radius = 336.006
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jcpqx"]
+radius = 472.153
+
 [node name="Enemy" type="CharacterBody2D"]
-position = Vector2(591, 337)
+position = Vector2(572, 304)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_53wsn")
 metadata/_edit_group_ = true
@@ -24,4 +27,12 @@ shape = SubResource("CircleShape2D_0l4ik")
 wait_time = 3.0
 one_shot = true
 
+[node name="Enemy_connection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_connection"]
+position = Vector2(-20, 4)
+shape = SubResource("CircleShape2D_jcpqx")
+debug_color = Color(0.956863, 0, 0.52549, 0.419608)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Enemy_connection" to="." method="_on_enemy_connection_body_entered"]

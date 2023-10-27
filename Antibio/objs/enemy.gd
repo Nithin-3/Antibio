@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var bact_spreed = preload("res://objs/spans.tscn")
 var spre: bool = true
-func  _process(delta):
+func  _process(_delta):
 	if spre:
 		spre =false
 		var node = bact_spreed.instantiate()
@@ -13,3 +13,6 @@ func  _process(delta):
 
 func _on_timer_timeout():
 	spre = true
+
+func _on_enemy_connection_body_entered(body):
+	print(body)

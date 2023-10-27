@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drd57hv8kw2ca"
-path="res://.godot/imported/Untitled.jpg-d6f54383ade0407c42d5cc02a3b7fc5e.ctex"
+uid="uid://dixwa04xb6gpb"
+path="res://.godot/imported/spred.png-f3cad82f9ff6e2701a824183d3e041e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/enemy/spans/Untitled.jpg"
-dest_files=["res://.godot/imported/Untitled.jpg-d6f54383ade0407c42d5cc02a3b7fc5e.ctex"]
+source_file="res://asset/enemy/spans/spred.png"
+dest_files=["res://.godot/imported/spred.png-f3cad82f9ff6e2701a824183d3e041e2.ctex"]
 
 [params]
 
