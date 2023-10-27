@@ -9,5 +9,9 @@ func _physics_process(delta):
 	position += rand * delta * speed
 
 func _on_timer_timeout():
-	queue_free()
+	$AudioStreamPlayer2D.play()
 	
+
+
+func _on_audio_stream_player_2d_finished():
+	queue_free()
