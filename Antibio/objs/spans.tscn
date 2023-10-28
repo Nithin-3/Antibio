@@ -30,5 +30,6 @@ stream = ExtResource("3_py6bd")
 volume_db = -5.333
 pitch_scale = 2.62
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
