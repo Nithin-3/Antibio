@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c151h12c6u75v"]
+
+[ext_resource type="Texture2D" uid="uid://ceoluf2vrq8qm" path="res://asset/player/spans/bullet.png" id="1_6biwy"]
+[ext_resource type="Script" path="res://objs/bullet.gd" id="1_jb0p5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8ujr"]
+radius = 13.0
+height = 138.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxi5p"]
+radius = 13.75
+height = 139.909
+
+[node name="bullet" type="Area2D"]
+scale = Vector2(0.363636, 0.385965)
+collision_layer = 4
+collision_mask = 14
+script = ExtResource("1_jb0p5")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.128125, 0.110938)
+texture = ExtResource("1_6biwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w8ujr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_qxi5p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
