@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8fxaq3uut71f"
-path="res://.godot/imported/lablady_spritesheet_BOXED.png-33237e54be4e30062872d69eac0f21ec.ctex"
+uid="uid://oc5o8q0k8uyb"
+path="res://.godot/imported/_Run.png-2e5564b96c7bd0a5c40d4484dd66f232.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/Player/lablady_spritesheet_BOXED.png"
-dest_files=["res://.godot/imported/lablady_spritesheet_BOXED.png-33237e54be4e30062872d69eac0f21ec.ctex"]
+source_file="res://Player/_Run.png"
+dest_files=["res://.godot/imported/_Run.png-2e5564b96c7bd0a5c40d4484dd66f232.ctex"]
 
 [params]
 
