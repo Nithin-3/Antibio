@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bugp4idf7ubbr"]
+
+[ext_resource type="Texture2D" uid="uid://driltbslxfknx" path="res://Background/Bg.png" id="1_72v5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtg8j"]
+size = Vector2(1173, 146)
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Bg" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Bg"]
+texture = ExtResource("1_72v5d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(589, 618)
+shape = SubResource("RectangleShape2D_mtg8j")
+
+[node name="Panel" type="Panel" parent="StaticBody2D"]
+offset_left = -2.0
+offset_top = 548.0
+offset_right = 1158.0
+offset_bottom = 693.0

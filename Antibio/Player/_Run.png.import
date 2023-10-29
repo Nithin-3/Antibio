@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://driltbslxfknx"
-path="res://.godot/imported/Bg.png-9663aeacf2f82ae91b2822fd62592546.ctex"
+uid="uid://oc5o8q0k8uyb"
+path="res://.godot/imported/_Run.png-2e5564b96c7bd0a5c40d4484dd66f232.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Bg.png"
-dest_files=["res://.godot/imported/Bg.png-9663aeacf2f82ae91b2822fd62592546.ctex"]
+source_file="res://Player/_Run.png"
+dest_files=["res://.godot/imported/_Run.png-2e5564b96c7bd0a5c40d4484dd66f232.ctex"]
 
 [params]
 
