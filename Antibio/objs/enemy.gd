@@ -1,18 +1,32 @@
 extends CharacterBody2D
-signal line(tar:Vector2)
-var HEALTH = 100
-var spre: bool = true
-func  _process(_delta):
-	var player = $"../Player"
-	if global_position.distance_to($"../Player".position) < 600 :
-		var motion = Vector2()
+var spred:bool = true
+var HEALTH:float = 100.0
+var span = preload("res://objs/spans.tscn")
+var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
+func _ready():
+	$Timer.start()
+func _process(_delta):
+	if spred:
+		rand = Vector2(randf_range(-1,1),randf_range(-1,1))
+		spred = false
+		$Timer.start()
+		var objs = span.instantiate()
+		objs.position = global_position
+		$"..".add_child(objs)
+	else :
+		position += rand * 3
+		move_and_slide()
+	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 110 :
+		$Sprite2D.look_at($"../Player".position)
+		position += ($"../Player".position - position)/500
+		move_and_slide()
 
-		position += (player.position - position)/100
-		look_at(player.position)
-
-		move_and_collide(motion)
-func minus(val:int):
+func minus(val:int,force:float):
 	HEALTH -= val
-	if HEALTH <= 0:
+	position -= Vector2.LEFT * force 
+	$HealthBar2D.value = HEALTH
+	if HEALTH <=0 :
 		queue_free()
-		
+
+func _on_timer_timeout():
+	spred = true

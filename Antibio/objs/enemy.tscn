@@ -1,23 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbefq4kxxoj2u"]
+[gd_scene load_steps=5 format=3 uid="uid://vbu8pf6lowbl"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
+[ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_78e0n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0l4ik"]
-radius = 336.006
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgamg"]
+radius = 53.1507
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.208, 0.2)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_53wsn")
-metadata/_edit_group_ = true
-
-[node name="3" type="Sprite2D" parent="."]
-position = Vector2(0, 4)
-rotation = -1.5708
-texture = ExtResource("1_bkd30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-18, -8)
-shape = SubResource("CircleShape2D_0l4ik")
+shape = SubResource("CircleShape2D_cgamg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.162819, 0.158974)
+texture = ExtResource("1_bkd30")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="HealthBar2D" parent="." instance=ExtResource("3_78e0n")]
+offset_left = -67.0
+offset_top = -88.0
+offset_right = -55.0
+offset_bottom = -87.0
+scale = Vector2(11.1344, 10.3039)
+tint_progress = Color(1, 0, 0, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

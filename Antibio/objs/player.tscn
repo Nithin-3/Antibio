@@ -1,23 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://c41mowaw4cml3"]
+[gd_scene load_steps=4 format=3 uid="uid://c41mowaw4cml3"]
 
 [ext_resource type="Texture2D" uid="uid://c4vh7ht573n1" path="res://asset/player/player.png" id="1_bk7wp"]
 [ext_resource type="Script" path="res://objs/player.gd" id="1_mkiye"]
+[ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_wu5xg"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 30
 script = ExtResource("1_mkiye")
 SPEED = 400.0
+JUMP_VELOCITY = -600.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-25, 4, -45, 7, -47, -7, -49, -19, -41, -21, -38, -14, -42, -8, -40, -3, -27, -5, -22, -19, -15, -26, -12, -35, -7, -38, -1, -36, 5, -36, 11, -28, 16, -25, 22, -17, 25, -6, 37, -2, 40, -6, 34, -17, 46, -18, 45, 4, 23, 6, 11, 18, 13, 24, 23, 40, 46, 39, 49, 46, 25, 46, 6, 50, -33, 46, -51, 46, -51, 40, -28, 39, -14, 27, -11, 16)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.649789, 0.647887)
 texture = ExtResource("1_bk7wp")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-25, 4, -45, 7, -47, -7, -49, -19, -41, -21, -38, -14, -42, -8, -40, -3, -27, -5, -22, -19, -15, -26, -12, -35, -7, -38, -1, -36, 5, -36, 11, -28, 16, -25, 22, -17, 25, -6, 37, -2, 40, -6, 34, -17, 46, -18, 45, 4, 23, 6, 11, 18, 13, 24, 23, 40, 46, 39, 49, 46, 25, 46, 6, 50, -33, 46, -51, 46, -51, 40, -28, 39, -14, 27, -11, 16)
-
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(41, -21)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -200)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
+
+[node name="HealthBar2D" parent="." instance=ExtResource("3_wu5xg")]
+offset_left = -68.0
+offset_top = -77.0
+offset_right = -56.0
+offset_bottom = -76.0
+scale = Vector2(11.4829, 8.48927)
+tint_under = Color(0.356863, 0.698039, 0.356863, 0.603922)
+tint_progress = Color(0, 1, 0, 1)
+_static = true

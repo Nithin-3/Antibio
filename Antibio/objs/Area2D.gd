@@ -21,5 +21,6 @@ func _on_audio_stream_player_2d_finished():
 
 
 func _on_body_entered(body):
-	if str(body)[0]  != "E":
+	if str(body)[0]  != "E" and "minus" in body:
+		body.minus(15)
 		destroy()
