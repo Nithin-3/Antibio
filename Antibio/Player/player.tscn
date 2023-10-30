@@ -329,6 +329,7 @@ position = Vector2(5, -27)
 sprite_frames = SubResource("SpriteFrames_b1imv")
 animation = &"Idle"
 frame = 1
+<<<<<<< HEAD
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(66, -51)
@@ -353,3 +354,5 @@ scale = Vector2(0.139, 0.125)
 texture_normal = ExtResource("7_tb2go")
 passby_press = true
 action = "ui_accept"
+=======
+>>>>>>> 29e77eac01c0c7908dbb3b71d93cc114983dd776

@@ -8,11 +8,14 @@ radius = 336.006
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.208, 0.2)
+collision_layer = 2
+collision_mask = 15
 script = ExtResource("1_53wsn")
 metadata/_edit_group_ = true
 
 [node name="3" type="Sprite2D" parent="."]
 position = Vector2(0, 4)
+rotation = -1.5708
 texture = ExtResource("1_bkd30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,14 +24,5 @@ shape = SubResource("CircleShape2D_0l4ik")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
-one_shot = true
-
-[node name="Connect" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Connect"]
-position = Vector2(34.5034, -5.77691)
-scale = Vector2(2.30486, 2.15537)
-polygon = PackedVector2Array(-500, -5, -480.769, -130, -437.5, -225, -360.577, -330, -221.154, -430, -14.4231, -475, 153.846, -440, 230.769, -395, 317.308, -330, 379.808, -240, 437.5, -120, 451.923, 0, 432.692, 140, 394.231, 235, 331.731, 315, 225.962, 410, 100.962, 465, -19.2308, 485, -139.423, 465, -365.385, 340, -447.115, 235, -485.577, 120, -500, 20, -557.692, 0, -533.654, 125, -490.385, 245, -403.846, 375, -163.462, 515, -24.0385, 540, 120.192, 520, 254.808, 455, 365.385, 355, 427.885, 270, 480.769, 155, 504.808, -5, 485.577, -140, 427.885, -275, 341.346, -390, 240.385, -450, 153.846, -500, -19.2308, -530, -254.808, -480, -408.654, -375, -495.192, -270, -548.077, -175, -557.692, -20, -509.615, -5)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Connect" to="." method="_on_connect_body_entered"]

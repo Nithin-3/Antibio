@@ -1,17 +1,9 @@
 extends Node2D
+var bullet = preload("res://objs/bullet.tscn")
+func _on_player_bullet(po, ang):
+	var fir = bullet.instantiate() as Area2D
+	fir.position = po
+	fir.rotation_degrees = rad_to_deg(ang.angle()) + 90
+	fir.dir = ang
+	$Player.add_child(fir)
 
-var from:Vector2 
-var to:Vector2 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	from = $Enemy.position
-	to = $Enemy.position
-
-func _on_enemy_line(tar):
-	to = tar
-	from = $Enemy.position
-	queue_redraw()
-func  _draw():
-	draw_line(from,to,Color.GREEN,1)
-	

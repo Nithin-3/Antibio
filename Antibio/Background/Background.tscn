@@ -1,5 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bugp4idf7ubbr"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://driltbslxfknx" path="res://Background/Bg.png" id="1_72v5d"]
 [ext_resource type="Texture2D" uid="uid://c01ip3hsdp4bc" path="res://asset/GrassDirt.png" id="1_pax1d"]
 
@@ -55,6 +56,9 @@ texture = ExtResource("1_pax1d")
 
 [sub_resource type="TileSet" id="TileSet_f8adb"]
 sources/0 = SubResource("TileSetAtlasSource_dxqea")
+=======
+[ext_resource type="Texture2D" uid="uid://driltbslxfknx" path="res://Bg.png" id="1_72v5d"]
+>>>>>>> 29e77eac01c0c7908dbb3b71d93cc114983dd776
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtg8j"]
 size = Vector2(1391.25, 145)
