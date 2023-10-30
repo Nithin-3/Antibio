@@ -5,5 +5,5 @@ func _on_player_bullet(po, ang):
 	fir.position = po
 	fir.rotation_degrees = rad_to_deg(ang.angle()) + 90
 	fir.dir = ang
-	$Player.add_child(fir)
+	add_child(fir)
 

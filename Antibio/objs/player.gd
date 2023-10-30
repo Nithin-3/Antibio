@@ -16,4 +16,4 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 	if Input.is_action_just_pressed("fire1"):
-		bullet.emit($Marker2D.position,(get_global_mouse_position() - position).normalized())
+		bullet.emit($Marker2D.global_position,(get_global_mouse_position() - position).normalized())

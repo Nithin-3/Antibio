@@ -52,6 +52,10 @@ fire2={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 2d_physics/layer_1="player"
@@ -59,10 +63,6 @@ fire2={
 2d_physics/layer_3="fire"
 2d_physics/layer_4="land"
 2d_physics/layer_5="level-"
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

@@ -16,6 +16,7 @@ scale = Vector2(0.363636, 0.385965)
 collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_jb0p5")
+speed = 2000
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
