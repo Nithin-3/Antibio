@@ -20,13 +20,11 @@ func _process(_delta):
 		$Sprite2D.look_at($"../Player".position)
 		position += ($"../Player".position - position)/500
 		move_and_slide()
-
 func minus(val:int,force:float):
 	HEALTH -= val
 	position -= Vector2.LEFT * force 
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
 		queue_free()
-
 func _on_timer_timeout():
 	spred = true

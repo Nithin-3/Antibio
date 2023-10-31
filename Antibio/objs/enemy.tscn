@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vbu8pf6lowbl"]
+[gd_scene load_steps=6 format=3 uid="uid://vbu8pf6lowbl"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_78e0n"]
+[ext_resource type="Script" path="res://objs/Connect.gd" id="4_fxugj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgamg"]
 radius = 53.1507
@@ -31,4 +32,16 @@ offset_bottom = -87.0
 scale = Vector2(11.1344, 10.3039)
 tint_progress = Color(1, 0, 0, 1)
 
+[node name="Connect" type="Line2D" parent="."]
+script = ExtResource("4_fxugj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(9, -148, 9, -148, 50, -139, 87, -118, 116, -91, 137, -56, 147, -3, 145, 38, 127, 77, 105, 106, 64, 136, 17, 147, -32, 146, -80, 126, -122, 86, -147, 27, -146, -27, -126, -77, -95, -115, -57, -136, -3, -149, -4, -130, -47, -117, -79, -98, -103, -70, -120, -30, -121, 21, -103, 65, -67, 104, -28, 114, 11, 113, 45, 102, 85, 80, 110, 34, 116, 5, 110, -45, 95, -81, 49, -113, 9, -130)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="Connect" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Connect" method="_on_area_2d_body_exited"]

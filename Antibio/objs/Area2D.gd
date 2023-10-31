@@ -14,13 +14,18 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	queue_free()
 	
-
+func minus(_val:int,_force:float):
+	destroy()
 
 func _on_audio_stream_player_2d_finished():
 	queue_free()
 
 
 func _on_body_entered(body):
-	if str(body)[0]  != "E" and "minus" in body:
-		body.minus(15)
+	if str(body)[0] == "B":
+		body.get_parent().destroy()
 		destroy()
+	if "minus" in body:
+		body.minus(0.5)
+		destroy()
+	

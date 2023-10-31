@@ -18,7 +18,7 @@ scale = Vector2(0.649789, 0.647887)
 texture = ExtResource("1_bk7wp")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(41, -21)
+position = Vector2(40, -17)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -200)
