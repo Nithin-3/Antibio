@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var spred:bool = true
 var HEALTH:float = 100.0
+var MUTATION:int = 100.0
 var span = preload("res://objs/spans.tscn")
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
@@ -8,6 +9,9 @@ func _ready():
 	$Connect.Target = self
 func _process(_delta):
 	$Connect.cont($Connect.Target.global_position)
+	if "MUTATION" in $Connect.Target:
+		if $Connect.Target.MUTATION > MUTATION:
+			MUTATION += 10 * _delta
 	if spred:
 		rand = Vector2(randf_range(-1,1),randf_range(-1,1))
 		spred = false
