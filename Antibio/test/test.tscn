@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://test/test.gd" id="1_ti60i"]
 [ext_resource type="PackedScene" uid="uid://vbu8pf6lowbl" path="res://objs/enemy.tscn" id="1_vf84e"]
 [ext_resource type="Texture2D" uid="uid://3y30lgedd8qo" path="res://icon.svg" id="3_i53s6"]
-[ext_resource type="PackedScene" uid="uid://23bftyhcwwhe" path="res://Player/player_1.tscn" id="3_neq0e"]
-[ext_resource type="PackedScene" uid="uid://dkolvp1wngwy8" path="res://Background/Background.tscn" id="5_pba5x"]
+[ext_resource type="PackedScene" uid="uid://cu06xlyxousq7" path="res://Player/player_1.tscn" id="3_neq0e"]
+[ext_resource type="PackedScene" path="res://Background/Background.tscn" id="5_pba5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqref"]
 size = Vector2(7.91753, 8.4933)
@@ -19,7 +19,7 @@ position = Vector2(-607, -324)
 position = Vector2(319, -230)
 
 [node name="Enemy2" parent="." instance=ExtResource("1_vf84e")]
-position = Vector2(667, -145)
+position = Vector2(650, -236)
 
 [node name="Player1" parent="." instance=ExtResource("3_neq0e")]
 position = Vector2(-89, 38)

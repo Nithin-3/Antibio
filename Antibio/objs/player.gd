@@ -3,10 +3,8 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -500.0
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 #Animation
 @onready var anim = get_node("AnimationPlayer")
-
 signal bullet(po:Vector2,ang)
 func  _ready():
 	anim.play("Idle")
@@ -19,8 +17,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		anim.play("Jump3")
 		velocity.y = JUMP_VELOCITY
-		
-		
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		if(velocity.y == 0):
@@ -44,5 +40,3 @@ func minus(val:float):
 		$HealthBar2D.tint_progress = Color.ORANGE
 	else :
 		$HealthBar2D.tint_progress = Color.GREEN
-	
-	

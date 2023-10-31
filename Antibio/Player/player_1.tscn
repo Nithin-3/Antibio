@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://23bftyhcwwhe"]
+[gd_scene load_steps=28 format=3 uid="uid://cu06xlyxousq7"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_uv4j4"]
 [ext_resource type="Texture2D" uid="uid://c7u3mxu4fhah6" path="res://asset/player/Cyborg_idle.png" id="2_6ddr5"]
@@ -161,6 +161,33 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_3vapk"]
+resource_name = "Jump3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Jump"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="Animation" id="Animation_2rd1v"]
 length = 0.001
 tracks/0/type = "value"
@@ -204,33 +231,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_3vapk"]
-resource_name = "Jump3"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Jump"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2msfu"]
 _data = {
 "Idle": SubResource("Animation_74fno"),
@@ -268,7 +268,7 @@ tint_progress = Color(0, 1, 0, 1)
 _static = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(12, -14)
+position = Vector2(41, -32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -300)
