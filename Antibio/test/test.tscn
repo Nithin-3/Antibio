@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dss8wulm0vsyr"]
+[gd_scene load_steps=7 format=3 uid="uid://dss8wulm0vsyr"]
 
 [ext_resource type="Script" path="res://test/test.gd" id="1_ti60i"]
 [ext_resource type="PackedScene" uid="uid://vbu8pf6lowbl" path="res://objs/enemy.tscn" id="1_vf84e"]
 [ext_resource type="Texture2D" uid="uid://3y30lgedd8qo" path="res://icon.svg" id="3_i53s6"]
-[ext_resource type="PackedScene" uid="uid://c41mowaw4cml3" path="res://objs/player.tscn" id="4_nwaei"]
+[ext_resource type="PackedScene" uid="uid://23bftyhcwwhe" path="res://Player/player_1.tscn" id="3_neq0e"]
+[ext_resource type="PackedScene" uid="uid://dkolvp1wngwy8" path="res://Background/Background.tscn" id="5_pba5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lqref"]
 size = Vector2(7.91753, 8.4933)
@@ -11,13 +12,17 @@ size = Vector2(7.91753, 8.4933)
 [node name="test" type="Node2D"]
 script = ExtResource("1_ti60i")
 
+[node name="Background" parent="." instance=ExtResource("5_pba5x")]
+position = Vector2(-607, -324)
+
 [node name="Enemy" parent="." instance=ExtResource("1_vf84e")]
-position = Vector2(353, 121)
+position = Vector2(319, -230)
 
 [node name="Enemy2" parent="." instance=ExtResource("1_vf84e")]
-position = Vector2(686, 116)
+position = Vector2(667, -145)
 
-[node name="Player" parent="." instance=ExtResource("4_nwaei")]
+[node name="Player1" parent="." instance=ExtResource("3_neq0e")]
+position = Vector2(-89, 38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-797, 545)
@@ -35,4 +40,4 @@ texture = ExtResource("3_i53s6")
 position = Vector2(1.62887, 4.11796)
 shape = SubResource("RectangleShape2D_lqref")
 
-[connection signal="bullet" from="Player" to="." method="_on_player_bullet"]
+[connection signal="bullet" from="Player1" to="." method="_on_player_1_bullet"]

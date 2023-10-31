@@ -16,9 +16,9 @@ func _process(_delta):
 	else :
 		position += rand * 3
 		move_and_slide()
-	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 110 :
-		$Sprite2D.look_at($"../Player".position)
-		position += ($"../Player".position - position)/500
+	if position.distance_to($"../Player1".position) < 600 and position.distance_to($"../Player1".position) > 110 :
+		$Sprite2D.look_at($"../Player1".position)
+		position += ($"../Player1".position - position)/500
 		move_and_slide()
 func minus(val:int,force:float):
 	HEALTH -= val
