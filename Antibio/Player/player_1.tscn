@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="5_nm7du"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fduev"]
-radius = 15.0
+radius = 29.0
 height = 74.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onq43"]
@@ -247,10 +247,10 @@ script = ExtResource("1_uv4j4")
 shape = SubResource("CapsuleShape2D_fduev")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(23, -27)
+position = Vector2(1, -26)
 scale = Vector2(2.77083, 2.64583)
 sprite_frames = SubResource("SpriteFrames_rlvqq")
-animation = &"Jump"
+animation = &"Idle"
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -259,10 +259,10 @@ libraries = {
 }
 
 [node name="HealthBar2D" parent="." instance=ExtResource("5_nm7du")]
-offset_left = -29.0
-offset_top = -84.0
-offset_right = -17.0
-offset_bottom = -83.0
+offset_left = -53.0
+offset_top = -87.0
+offset_right = -35.0
+offset_bottom = -86.0
 scale = Vector2(5.03719, 5.96397)
 tint_progress = Color(0, 1, 0, 1)
 _static = true

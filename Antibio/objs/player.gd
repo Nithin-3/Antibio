@@ -18,6 +18,11 @@ func _physics_process(delta):
 		anim.play("Jump3")
 		velocity.y = JUMP_VELOCITY
 	var direction = Input.get_axis("left", "right")
+	
+	if(direction == -1):
+		get_node("AnimatedSprite2D").flip_h = true
+	if(direction == 1):
+		get_node("AnimatedSprite2D").flip_h = false
 	if direction:
 		if(velocity.y == 0):
 			anim.play("Run")

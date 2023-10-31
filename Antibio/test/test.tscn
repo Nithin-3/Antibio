@@ -13,7 +13,8 @@ size = Vector2(7.91753, 8.4933)
 script = ExtResource("1_ti60i")
 
 [node name="Background" parent="." instance=ExtResource("5_pba5x")]
-position = Vector2(-607, -324)
+position = Vector2(-634, -322)
+scale = Vector2(2, 1)
 
 [node name="Enemy" parent="." instance=ExtResource("1_vf84e")]
 position = Vector2(319, -230)
