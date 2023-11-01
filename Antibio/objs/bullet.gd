@@ -1,6 +1,7 @@
 extends Area2D
 @export var speed : int  = 500
 var dir = Vector2.UP
+
 func destroy():
 	visible = false
 	queue_free()
@@ -14,6 +15,8 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
+	queue_free()
+	
 	if "minus" in body:
 		body.minus(6,2)
 	destroy()

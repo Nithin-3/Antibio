@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6yoq645s3w6p"
-path="res://.godot/imported/16.png-004473637af2b2215855a4e88d0ae206.ctex"
+uid="uid://csa4n2fx4kov5"
+path="res://.godot/imported/Angryvirus6.png-0206c0f8a46353ce88016e1c94d12aa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/UI Buttons/Tile/16.png"
-dest_files=["res://.godot/imported/16.png-004473637af2b2215855a4e88d0ae206.ctex"]
+source_file="res://asset/player/Angryvirus6.png"
+dest_files=["res://.godot/imported/Angryvirus6.png-0206c0f8a46353ce88016e1c94d12aa3.ctex"]
 
 [params]
 

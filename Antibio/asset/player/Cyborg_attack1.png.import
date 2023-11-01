@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbb1bdi1hma45"
-path="res://.godot/imported/11.png-5b2d1f6fbe85669ada696ab655b39291.ctex"
+uid="uid://d2ymnhpekq53h"
+path="res://.godot/imported/Cyborg_attack1.png-fee018b062c002552130453b4817f469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/UI Buttons/Tile/11.png"
-dest_files=["res://.godot/imported/11.png-5b2d1f6fbe85669ada696ab655b39291.ctex"]
+source_file="res://asset/player/Cyborg_attack1.png"
+dest_files=["res://.godot/imported/Cyborg_attack1.png-fee018b062c002552130453b4817f469.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b41npvss8wvat"
-path="res://.godot/imported/7.png-3eea08b2c5ee580d0ef42834126bed72.ctex"
+uid="uid://bj1lpbvblni61"
+path="res://.godot/imported/morning_adventures_tileset_16x16.png-7be6948c6ba411e4845d21f3777ef0c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/UI Buttons/Tile/7.png"
-dest_files=["res://.godot/imported/7.png-3eea08b2c5ee580d0ef42834126bed72.ctex"]
+source_file="res://asset/morning_adventures_tileset_16x16.png"
+dest_files=["res://.godot/imported/morning_adventures_tileset_16x16.png-7be6948c6ba411e4845d21f3777ef0c2.ctex"]
 
 [params]
 

@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxpitfjulm507"]
+
+[ext_resource type="Texture2D" uid="uid://cfxw8q2tqxlp6" path="res://asset/Animation Sprites/Retro Impact Effect Pack 3 D.png" id="1_y00fp"]
+[ext_resource type="Script" path="res://explotion.gd" id="2_avef4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlo7g"]
+atlas = ExtResource("1_y00fp")
+region = Rect2(0, 444, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eahdn"]
+atlas = ExtResource("1_y00fp")
+region = Rect2(32, 444, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehg1h"]
+atlas = ExtResource("1_y00fp")
+region = Rect2(64, 444, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ns2f"]
+atlas = ExtResource("1_y00fp")
+region = Rect2(96, 444, 32, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8bnh"]
+atlas = ExtResource("1_y00fp")
+region = Rect2(128, 444, 32, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a16xt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlo7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eahdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehg1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ns2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8bnh")
+}],
+"loop": true,
+"name": &"Blast1",
+"speed": 5.0
+}]
+
+[node name="Explotion" type="AnimatedSprite2D"]
+position = Vector2(-14, -12)
+scale = Vector2(5, 5.62162)
+sprite_frames = SubResource("SpriteFrames_a16xt")
+animation = &"Blast1"
+frame_progress = 0.0452653
+speed_scale = 2.0
+script = ExtResource("2_avef4")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

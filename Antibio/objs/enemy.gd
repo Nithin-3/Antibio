@@ -3,6 +3,8 @@ var spred:bool = true
 var HEALTH:float = 100.0
 var MUTATION:int = 100.0
 var span = preload("res://objs/spans.tscn")
+#var explosion = preload("res://explotion.tscn")
+
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
 	$Timer.start()
