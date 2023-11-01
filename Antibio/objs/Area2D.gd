@@ -25,7 +25,7 @@ func _on_body_entered(body):
 	if str(body)[0] == "B":
 		body.get_parent().destroy()
 		destroy()
-	if "minus" in body:
-		body.minus(0.5)
+	if "minu" in body:
+		body.minu(0.5)
 		destroy()
 	

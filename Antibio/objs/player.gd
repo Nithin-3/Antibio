@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -500.0
+@export var SPEED = 400.0
+@export var JUMP_VELOCITY = -600.0
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet = preload("res://objs/bullet.tscn")
@@ -14,9 +14,9 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	
 	if(direction == -1):
-		get_node("Sprite2D").rotation_degrees -= 3
+		get_node("Sprite2D").rotation_degrees -= 5
 	if(direction == 1):
-		get_node("Sprite2D").rotation_degrees += 3
+		get_node("Sprite2D").rotation_degrees += 5
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -31,7 +31,7 @@ func _physics_process(delta):
 		fir.rotation_degrees = rad_to_deg(ang.angle()) + 90
 		fir.dir = ang
 		$"..".add_child(fir)
-func minus(val:float):
+func minu(val:float):
 	HEALTH -= val
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
