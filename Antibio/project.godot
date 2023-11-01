@@ -15,6 +15,7 @@ run/main_scene="res://MainMenu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+<<<<<<< HEAD
 [display]
 
 window/size/viewport_width=1920
@@ -22,6 +23,8 @@ window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+=======
+>>>>>>> parent of dcdd556 (Adding tilemaps and canvas)
 [input]
 
 up={

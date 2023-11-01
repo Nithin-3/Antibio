@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c41mowaw4cml3"]
+[gd_scene load_steps=5 format=3 uid="uid://c41mowaw4cml3"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_mkiye"]
 [ext_resource type="Texture2D" uid="uid://csa4n2fx4kov5" path="res://asset/player/Angryvirus6.png" id="2_i3st6"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_wu5xg"]
-[ext_resource type="Texture2D" uid="uid://c8csxw0dw7634" path="res://asset/UI Buttons/Left.png" id="3_yw83q"]
-[ext_resource type="Texture2D" uid="uid://kj6jq87b08fg" path="res://asset/UI Buttons/Jump.png" id="4_m3bjv"]
-[ext_resource type="Texture2D" uid="uid://cetbufulnl76a" path="res://asset/UI Buttons/Right.png" id="5_byfj1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tupkr"]
 radius = 50.0
@@ -13,6 +10,10 @@ radius = 50.0
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 14
 script = ExtResource("1_mkiye")
+SPEED = 400.0
+JUMP_VELOCITY = -600.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tupkr")
@@ -27,6 +28,7 @@ offset = Vector2(0, -200)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
+<<<<<<< HEAD
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
@@ -84,6 +86,8 @@ action = "right"
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -70)
 
+=======
+>>>>>>> parent of dcdd556 (Adding tilemaps and canvas)
 [node name="HealthBar2D" parent="." instance=ExtResource("3_wu5xg")]
 offset_left = -68.0
 offset_top = -77.0
