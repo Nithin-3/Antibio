@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlxo7jmh34a6i"]
+
+[ext_resource type="Script" path="res://objs/Area2D.gd" id="1_ahv3g"]
+[ext_resource type="Texture2D" uid="uid://d188e0irpjxs4" path="res://asset/enemy/spans/Spr.png" id="2_w3lqc"]
+[ext_resource type="AudioStream" uid="uid://bk5fx32i72tov" path="res://asset/enemy/sfx/span_blast.mp3" id="3_py6bd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_amfnm"]
+radius = 27.0
+
+[node name="spans" type="Area2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_ahv3g")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_amfnm")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Spred" type="Sprite2D" parent="."]
+position = Vector2(0.500001, -1.25)
+scale = Vector2(0.161638, 0.159529)
+texture = ExtResource("2_w3lqc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 17.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_py6bd")
+volume_db = -16.0
+pitch_scale = 3.08
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
