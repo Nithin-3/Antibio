@@ -10,7 +10,6 @@ func _ready():
 	$Timer.start()
 func _physics_process(delta):
 	position += rand * delta * speed
-
 func _on_timer_timeout():
 	queue_free()
 	
@@ -21,6 +20,7 @@ func _on_audio_stream_player_2d_finished():
 	queue_free()
 
 
+
 func _on_body_entered(body):
 	if str(body)[0] == "B":
 		body.get_parent().destroy()
@@ -28,4 +28,5 @@ func _on_body_entered(body):
 	if "minu" in body:
 		body.minu(0.5)
 		destroy()
-	
+	if str(body)[0] != "E":
+		rand = -rand + global_position.direction_to(body.position)

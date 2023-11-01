@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://vbu8pf6lowbl"]
+[gd_scene load_steps=8 format=3 uid="uid://vbu8pf6lowbl"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
+[ext_resource type="Texture2D" uid="uid://dkeaanb43pkci" path="res://asset/enemy/spans/connect.png" id="2_fin45"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_78e0n"]
 [ext_resource type="Script" path="res://objs/Connect.gd" id="4_fxugj"]
 
@@ -26,7 +27,8 @@ scale = Vector2(1.93027, 1.88345)
 shape = SubResource("CircleShape2D_5tgt0")
 
 [node name="Connect" type="Line2D" parent="."]
-default_color = Color(0, 1, 0, 1)
+texture = ExtResource("2_fin45")
+texture_mode = 1
 script = ExtResource("4_fxugj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

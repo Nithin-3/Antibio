@@ -17,9 +17,7 @@ func _process(_delta):
 		if $Connect.Target.MUTATION > MUTATION:
 			$Mut.start()
 			mut = false
-			MUTATION += 100 * _delta
-			print("mutation = ",MUTATION)
-			$Mutation.value = MUTATION
+			
 			
 	if spred:
 		rand = Vector2(randf_range(-1,1),randf_range(-1,1))
@@ -28,10 +26,12 @@ func _process(_delta):
 		var objs = span.instantiate()
 		objs.position = global_position
 		$"..".add_child(objs)
-	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 90 :
+	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 110:
 		$Sprite2D.look_at($"../Player".position)
 		position += ($"../Player".position - position)/300
 		move_and_slide()
+	elif position.distance_to($"../Player".position) <= 130:
+		pass
 	else :
 		position += rand * 3
 		move_and_slide()
@@ -45,3 +45,6 @@ func _on_timer_timeout():
 	spred = true
 func _on_mut_timeout():
 	mut = true
+	MUTATION += 2
+	$Mutation.value = MUTATION
+	
