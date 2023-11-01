@@ -1,3 +1,4 @@
+
 extends Line2D
 var Target
 func _on_area_2d_body_entered(body):

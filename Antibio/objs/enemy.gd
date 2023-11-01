@@ -4,10 +4,16 @@ var HEALTH:float = 100.0
 @export var MUTATION:int = 100
 var span = preload("res://objs/spans.tscn")
 var mut:bool = true
+var _1 = preload("res://asset/enemy/1.png")
+var _2 = preload("res://asset/enemy/2.png")
+var _3 = preload("res://asset/enemy/3.png")
+var _4 = preload("res://asset/enemy/4.png")
+var _5 = preload("res://asset/enemy/5.png")
 #var explosion = preload("res://explotion.tscn")
 
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
+	mutat()
 	$Mutation.value = MUTATION
 	$Timer.start()
 	$Connect.Target = self
@@ -17,8 +23,6 @@ func _process(_delta):
 		if $Connect.Target.MUTATION > MUTATION:
 			$Mut.start()
 			mut = false
-			
-			
 	if spred:
 		rand = Vector2(randf_range(-1,1),randf_range(-1,1))
 		spred = false
@@ -36,15 +40,37 @@ func _process(_delta):
 		position += rand * 3
 		move_and_slide()
 func minus(val:int,force:float):
-	HEALTH -= val
+	HEALTH -= val/int(MUTATION/100)
 	position -= global_position.direction_to($"../Player".position) * force 
-	$HealthBar2D.value = HEALTH
-	if HEALTH <=0 :
+	if int(MUTATION/100) > 1 and HEALTH < 1:
+		MUTATION -= 100
+		HEALTH = 100
+		mutat()
+	elif HEALTH>0:
+		pass
+	else :
 		queue_free()
+	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
 	spred = true
 func _on_mut_timeout():
 	mut = true
 	MUTATION += 2
 	$Mutation.value = MUTATION
-	
+	mutat()
+func mutat():
+	if int(MUTATION/100) == 1:
+		$Sprite2D.texture = _1
+		$Sprite2D.scale = Vector2(0.326,0.311)
+	if int(MUTATION/100) == 2:
+		$Sprite2D.texture = _2
+		$Sprite2D.scale = Vector2(0.468,0.47)
+	if int(MUTATION/100) == 3:
+		$Sprite2D.texture = _3
+		$Sprite2D.scale = Vector2(0.474,0.457)
+	if int(MUTATION/100) == 4:
+		$Sprite2D.texture = _4
+		$Sprite2D.scale = Vector2(0.302,0.302)
+	if int(MUTATION/100) == 5:
+		$Sprite2D.texture = _5
+		$Sprite2D.scale = Vector2(0.32,0.32)

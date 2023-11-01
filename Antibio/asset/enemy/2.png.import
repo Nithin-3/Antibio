@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkeaanb43pkci"
-path="res://.godot/imported/connect.png-764fa42c5c20a805e6079857c20c585e.ctex"
+uid="uid://ceatxlaupxwdw"
+path="res://.godot/imported/2.png-77c854a63958aab14e75a76919f0b706.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/enemy/spans/connect.png"
-dest_files=["res://.godot/imported/connect.png-764fa42c5c20a805e6079857c20c585e.ctex"]
+source_file="res://asset/enemy/2.png"
+dest_files=["res://.godot/imported/2.png-77c854a63958aab14e75a76919f0b706.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

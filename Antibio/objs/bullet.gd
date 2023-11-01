@@ -16,7 +16,6 @@ func _on_timer_timeout():
 
 func _on_body_entered(body):
 	queue_free()
-	print(body)
 	if "minus" in body:
 		body.minus(6,2)
 	destroy()
