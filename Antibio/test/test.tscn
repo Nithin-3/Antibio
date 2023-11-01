@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://bug2dyd33d27e"]
+[gd_scene load_steps=5 format=3 uid="uid://bug2dyd33d27e"]
+
+[ext_resource type="Texture2D" uid="uid://64e1x1wjsdci" path="res://icon.svg" id="1_8vsef"]
+[ext_resource type="PackedScene" uid="uid://vbu8pf6lowbl" path="res://objs/enemy.tscn" id="2_ank3j"]
+[ext_resource type="PackedScene" uid="uid://cvbnnbkpy5yjl" path="res://objs/player.tscn" id="3_jlim1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eu71"]
+size = Vector2(127.864, 130)
 
 [node name="test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(477, 612)
+scale = Vector2(22.7291, 0.498237)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2eu71")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_8vsef")
+
+[node name="Enemy" parent="." instance=ExtResource("2_ank3j")]
+position = Vector2(417, 276)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_ank3j")]
+position = Vector2(590, 505)
+MUTATION = 200
+
+[node name="Enemy3" parent="." instance=ExtResource("2_ank3j")]
+position = Vector2(736, 226)
+MUTATION = 300
+
+[node name="Enemy4" parent="." instance=ExtResource("2_ank3j")]
+position = Vector2(908, 440)
+MUTATION = 500
+
+[node name="Player" parent="." instance=ExtResource("3_jlim1")]

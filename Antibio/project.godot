@@ -51,8 +51,9 @@ fire2={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="fire"
 2d_physics/layer_4="land"
-2d_physics/layer_5="rtiger"
+2d_physics/layer_5="triger"
 
 [rendering]
 
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="mobile"
