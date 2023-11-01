@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var spred:bool = true
 var HEALTH:float = 100.0
-var MUTATION:int = 100.0
+@export var MUTATION:int = 100.0
 var span = preload("res://objs/spans.tscn")
 #var explosion = preload("res://explotion.tscn")
 
@@ -21,16 +21,16 @@ func _process(_delta):
 		var objs = span.instantiate()
 		objs.position = global_position
 		$"..".add_child(objs)
-	if position.distance_to($"../Player1".position) < 600 and position.distance_to($"../Player1".position) > 110 :
-		$Sprite2D.look_at($"../Player1".position)
-		position += ($"../Player1".position - position)/500
+	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 110 :
+		$Sprite2D.look_at($"../Player".position)
+		position += ($"../Player".position - position)/500
 		move_and_slide()
 	else :
 		position += rand * 3
 		move_and_slide()
 func minus(val:int,force:float):
 	HEALTH -= val
-	position -= global_position.direction_to($"../Player1".position) * force 
+	position -= global_position.direction_to($"../Player".position) * force 
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
 		queue_free()

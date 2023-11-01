@@ -8,7 +8,7 @@ func cont(tar:Vector2):
 	var point:Vector2 = position + global_position.direction_to(tar)
 	var rang = global_position.distance_to(tar)
 	for add in rang:
-		if add > rang/1.8:
+		if add > rang-55 and rang > 45:
 			break
 		add_point(point*add)
 
