@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://vbu8pf6lowbl"]
+[gd_scene load_steps=7 format=3 uid="uid://vbu8pf6lowbl"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://cp73hyl0q6d7r" path="res://asset/enemy/3.png" id="1_bkd30"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_78e0n"]
 [ext_resource type="Script" path="res://objs/Connect.gd" id="4_fxugj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tgt0"]
+radius = 156.994
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgamg"]
 radius = 53.1507
@@ -12,6 +15,15 @@ radius = 53.1507
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_53wsn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.883453)
+scale = Vector2(1.93027, 1.88345)
+shape = SubResource("CircleShape2D_5tgt0")
 
 [node name="Connect" type="Line2D" parent="."]
 default_color = Color(0, 1, 0, 1)
@@ -36,15 +48,21 @@ offset_bottom = -87.0
 scale = Vector2(11.1344, 10.3039)
 tint_progress = Color(1, 0, 0, 1)
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 2
+[node name="Mutation" parent="." instance=ExtResource("3_78e0n")]
+offset_left = -102.0
+offset_top = -103.0
+offset_right = -90.0
+offset_bottom = -102.0
+scale = Vector2(16.977, 8.44021)
+max_value = 500.0
+value = 100.0
+tint_progress = Color(0.776471, 0, 1, 1)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(0, 0.883453)
-scale = Vector2(1.93027, 1.88345)
-polygon = PackedVector2Array(9, -148, 9, -148, 50, -139, 87, -118, 116, -91, 137, -56, 147, -3, 145, 38, 127, 77, 105, 106, 64, 136, 17, 147, -32, 146, -80, 126, -122, 86, -147, 27, -146, -27, -126, -77, -95, -115, -57, -136, -3, -149, -4, -130, -47, -117, -79, -98, -103, -70, -120, -30, -121, 21, -103, 65, -67, 104, -28, 114, 11, 113, 45, 102, 85, 80, 110, 34, 116, 5, 110, -45, 95, -81, 49, -113, 9, -130)
+[node name="Mut" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Connect" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Connect" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Mut" to="." method="_on_mut_timeout"]

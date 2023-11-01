@@ -16,6 +16,7 @@ script = ExtResource("1_ti60i")
 
 [node name="Enemy" parent="." instance=ExtResource("1_vf84e")]
 position = Vector2(752, 67)
+MUTATION = 200
 
 [node name="Enemy2" parent="." instance=ExtResource("1_vf84e")]
 position = Vector2(1090, 48)
