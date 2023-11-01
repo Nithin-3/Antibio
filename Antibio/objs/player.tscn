@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cetbufulnl76a" path="res://asset/UI Buttons/Right.png" id="5_byfj1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tupkr"]
-radius = 54.7449
+radius = 50.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 14
@@ -18,8 +18,8 @@ script = ExtResource("1_mkiye")
 shape = SubResource("CircleShape2D_tupkr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, 9)
-scale = Vector2(0.135, 0.131667)
+position = Vector2(-7, 8)
+scale = Vector2(0.133333, 0.128333)
 texture = ExtResource("2_i3st6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -70,10 +70,10 @@ anchor_left = 0.254
 anchor_top = 0.666
 anchor_right = 0.308
 anchor_bottom = 0.748
-offset_left = -292.608
-offset_top = -431.568
-offset_right = -314.816
-offset_bottom = -444.704
+offset_left = -288.608
+offset_top = -429.568
+offset_right = -310.816
+offset_bottom = -442.704
 
 [node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
 position = Vector2(278, 421)
