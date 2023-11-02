@@ -2,6 +2,9 @@ extends Area2D
 
 @export var speed : int  = 50
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
+
+var spawnExplo = preload("res://spawn_enem_blast.tscn")
+
 func destroy():
 	visible = false
 	$AudioStreamPlayer2D.play()
@@ -23,6 +26,10 @@ func _on_audio_stream_player_2d_finished():
 
 func _on_body_entered(body):
 	if str(body)[0] == "B":
+		var SpwnExplo = spawnExplo.instantiate()
+		SpwnExplo.position = get_global_position()
+		get_tree().get_root().add_child(SpwnExplo)
+		SpwnExplo.get_node("AnimationPlayer").play("DeadBlast")
 		body.get_parent().destroy()
 		destroy()
 	if "minus" in body:
@@ -30,3 +37,7 @@ func _on_body_entered(body):
 		destroy()
 	if str(body)[0] != "E":
 		rand = -rand + global_position.direction_to(body.position)
+
+
+func _on_animation_player_animation_finished(anim_name):
+	queue_free()

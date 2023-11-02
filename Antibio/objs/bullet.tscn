@@ -1,17 +1,116 @@
-[gd_scene load_steps=5 format=3 uid="uid://c151h12c6u75v"]
+[gd_scene load_steps=19 format=3 uid="uid://c151h12c6u75v"]
 
 [ext_resource type="Texture2D" uid="uid://ceoluf2vrq8qm" path="res://asset/player/spans/bullet.png" id="1_6biwy"]
 [ext_resource type="Script" path="res://objs/bullet.gd" id="1_jb0p5"]
+[ext_resource type="Texture2D" uid="uid://bemb6sqffbm7a" path="res://asset/Bullet Animation/11.png" id="3_oyk1q"]
+[ext_resource type="Texture2D" uid="uid://7rvqkwgmghc5" path="res://asset/Bullet Animation/12.png" id="4_qfxj3"]
+[ext_resource type="Texture2D" uid="uid://ds3ubnh881lvs" path="res://asset/Bullet Animation/13.png" id="5_xnxu7"]
+[ext_resource type="Texture2D" uid="uid://pyhiyqsb2g6n" path="res://asset/Bullet Animation/14.png" id="6_ipmkj"]
+[ext_resource type="Texture2D" uid="uid://hgam05fg504s" path="res://asset/Bullet Animation/15.png" id="7_oofr5"]
+[ext_resource type="Texture2D" uid="uid://bm84re5d3dbut" path="res://asset/Bullet Animation/16.png" id="8_ru6g8"]
+[ext_resource type="Texture2D" uid="uid://bpbict2rqs0w7" path="res://asset/Bullet Animation/17.png" id="9_l4t0v"]
+[ext_resource type="Texture2D" uid="uid://cskmio4j5qevw" path="res://asset/Bullet Animation/18.png" id="10_ebdrw"]
+[ext_resource type="Texture2D" uid="uid://be6q6ucv0ckl8" path="res://asset/Bullet Animation/19.png" id="11_ecy58"]
+[ext_resource type="Texture2D" uid="uid://cje2ejwft340q" path="res://asset/Bullet Animation/20.png" id="12_i3a5s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8u8xr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oyk1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qfxj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xnxu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ipmkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oofr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ru6g8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l4t0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ebdrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ecy58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_i3a5s")
+}],
+"loop": true,
+"name": &"BulletF",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dqp7d"]
+resource_name = "BulletFor"
+length = 0.8
+step = 0.08
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BulletF"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56, 0.64, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_4bk52"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pidlm"]
+_data = {
+"BulletFor": SubResource("Animation_dqp7d"),
+"RESET": SubResource("Animation_4bk52")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8ujr"]
-radius = 13.0
-height = 138.0
+radius = 43.1963
+height = 269.34
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxi5p"]
 radius = 13.75
 height = 139.909
 
 [node name="bullet" type="Area2D"]
+position = Vector2(-2, 2)
 scale = Vector2(0.185201, 0.215341)
 collision_layer = 4
 collision_mask = 14
@@ -19,7 +118,22 @@ script = ExtResource("1_jb0p5")
 speed = 2000
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.39136, -3.39882)
+rotation = -1.5708
+scale = Vector2(1.94371, 3.03022)
+sprite_frames = SubResource("SpriteFrames_8u8xr")
+animation = &"BulletF"
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "BulletFor"
+libraries = {
+"": SubResource("AnimationLibrary_pidlm")
+}
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.128125, 0.110938)
 texture = ExtResource("1_6biwy")
 

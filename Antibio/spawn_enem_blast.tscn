@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://bwf3ceh0rplx7"]
+
+[ext_resource type="Texture2D" uid="uid://du3jvqcirq48i" path="res://asset/Enemy Blast/Explosion_gas1.png" id="1_b8aio"]
+[ext_resource type="Texture2D" uid="uid://cg2xpmnb6ci4o" path="res://asset/Enemy Blast/Explosion_gas2.png" id="2_bjq75"]
+[ext_resource type="Texture2D" uid="uid://c4y6pfeqpt1gh" path="res://asset/Enemy Blast/Explosion_gas3.png" id="3_tgs2p"]
+[ext_resource type="Texture2D" uid="uid://d23dwt1pxy4vi" path="res://asset/Enemy Blast/Explosion_gas4.png" id="4_348s4"]
+[ext_resource type="Texture2D" uid="uid://bcqsp1okp6e4e" path="res://asset/Enemy Blast/Explosion_gas5.png" id="5_7h0ca"]
+[ext_resource type="Texture2D" uid="uid://beioug6v2ibtt" path="res://asset/Enemy Blast/Explosion_gas6.png" id="6_q2ef6"]
+[ext_resource type="Texture2D" uid="uid://bun4poqgb5xyj" path="res://asset/Enemy Blast/Explosion_gas7.png" id="7_se3gx"]
+[ext_resource type="Texture2D" uid="uid://cg6dc44r2j74g" path="res://asset/Enemy Blast/Explosion_gas8.png" id="8_mv7pa"]
+[ext_resource type="Texture2D" uid="uid://djs4v1ldejo4f" path="res://asset/Enemy Blast/Explosion_gas9.png" id="9_4yryg"]
+[ext_resource type="Texture2D" uid="uid://bwtybqb6uapqr" path="res://asset/Enemy Blast/Explosion_gas10.png" id="10_kxs02"]
+[ext_resource type="Script" path="res://spawn_enem_blast.gd" id="11_0uuhu"]
+[ext_resource type="Script" path="res://objs/SpawnEnemyBlast.gd" id="11_p6s4d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbsxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b8aio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bjq75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tgs2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_348s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7h0ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q2ef6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_se3gx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mv7pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4yryg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kxs02")
+}],
+"loop": true,
+"name": &"SpawnBlast",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hqpfj"]
+resource_name = "DeadBlast"
+length = 0.4
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"SpawnBlast"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.08, 0.12, 0.16, 0.2, 0.24, 0.28, 0.32, 0.36),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_awugi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ipasl"]
+_data = {
+"DeadBlast": SubResource("Animation_hqpfj"),
+"RESET": SubResource("Animation_awugi")
+}
+
+[node name="SpawnEnemBlast" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jbsxj")
+animation = &"SpawnBlast"
+frame = 1
+script = ExtResource("11_0uuhu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ipasl")
+}
+script = ExtResource("11_p6s4d")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
