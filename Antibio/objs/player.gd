@@ -1,6 +1,6 @@
 extends CharacterBody2D
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -500.0
+@export var SPEED = 450.0
+@export var JUMP_VELOCITY = -650.0
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet = preload("res://objs/bullet.tscn")
@@ -10,9 +10,9 @@ func  _ready():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	if Input.is_action_just_pressed("up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	var direction = Input.get_axis("left", "right")
+	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if(direction == -1):
 		get_node("Sprite2D").rotation_degrees -= 3

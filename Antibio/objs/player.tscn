@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=8 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
-[ext_resource type="Texture2D" uid="uid://csa4n2fx4kov5" path="res://asset/player/Angryvirus6.png" id="2_8yly3"]
+[ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_ev0u5"]
+[ext_resource type="Texture2D" uid="uid://bm8dirlgjh0m7" path="res://asset/UI Buttons/LeftN.png" id="3_fdmj8"]
+[ext_resource type="Texture2D" uid="uid://dn7nnwxnw2fiv" path="res://asset/UI Buttons/RightN.png" id="4_akjeg"]
+[ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
 radius = 64.0703
@@ -15,9 +18,9 @@ script = ExtResource("1_pc32l")
 shape = SubResource("CircleShape2D_a7u8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, 8)
-scale = Vector2(0.158333, 0.141667)
-texture = ExtResource("2_8yly3")
+position = Vector2(0.499999, -2.29478e-06)
+scale = Vector2(0.351293, 0.351178)
+texture = ExtResource("2_saton")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1, -78)
@@ -25,6 +28,57 @@ position = Vector2(1, -78)
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -300)
 zoom = Vector2(0.6, 0.6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.157
+anchor_top = 0.681
+anchor_right = 0.204
+anchor_bottom = 0.744
+offset_left = -180.864
+offset_top = -441.288
+offset_right = -195.008
+offset_bottom = -442.112
+
+[node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer"]
+position = Vector2(173, 429)
+texture_normal = ExtResource("3_fdmj8")
+action = "ui_left"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.254
+anchor_top = 0.679
+anchor_right = 0.283
+anchor_bottom = 0.745
+offset_left = -292.608
+offset_top = -439.992
+offset_right = -286.016
+offset_bottom = -442.76
+
+[node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
+position = Vector2(277, 427)
+texture_normal = ExtResource("4_akjeg")
+action = "ui_right"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.762
+anchor_top = 0.681
+anchor_right = 0.798
+anchor_bottom = 0.739
+offset_left = -1242.82
+offset_top = -454.288
+offset_right = -1244.3
+offset_bottom = -451.872
+
+[node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
+position = Vector2(1234, 441)
+texture_normal = ExtResource("5_qfbg3")
+passby_press = true
+action = "ui_up"
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
