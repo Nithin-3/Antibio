@@ -9,7 +9,7 @@ var _2 = preload("res://asset/enemy/2.png")
 var _3 = preload("res://asset/enemy/3.png")
 var _4 = preload("res://asset/enemy/4.png")
 var _5 = preload("res://asset/enemy/5.png")
-
+var redu = true
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
 	mutat()
@@ -29,25 +29,24 @@ func _process(_delta):
 		var objs = span.instantiate()
 		objs.position = global_position
 		$"..".add_child(objs)
-	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 110:
+	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 112:
 		$Sprite2D.look_at($"../Player".position)
 		position += ($"../Player".position - position)/300
 		move_and_slide()
-	elif position.distance_to($"../Player".position) <= 130:
-		pass
+	elif position.distance_to($"../Player".position) <= 160.0:
+		if redu:
+			redu = false
+			$mins.start()
+			$"../Player".minus(1)
 	else :
 		position += rand * 3
 		move_and_slide()
+	if $"../Player".HEALTH < 1:
+		$Connect.queue_free()
 func minus(val:int,force:float):
 	HEALTH -= val/int(MUTATION/100)
 	position -= global_position.direction_to($"../Player".position) * force 
-	if int(MUTATION/100) > 1 and HEALTH < 1:
-		MUTATION -= 100
-		HEALTH = 100
-		mutat()
-	elif HEALTH>0:
-		pass
-	else :
+	if HEALTH < 1:
 		queue_free()
 	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
@@ -73,3 +72,7 @@ func mutat():
 	if int(MUTATION/100) == 5:
 		$Sprite2D.texture = _5
 		$Sprite2D.scale = Vector2(0.32,0.32)
+
+
+func _on_mins_timeout():
+	redu = true

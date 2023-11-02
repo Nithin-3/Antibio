@@ -43,6 +43,7 @@ func minus(val:float):
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
 		get_tree().paused = true
+		$Aim.queue_free()
 	elif HEALTH < 30:
 		$HealthBar2D.tint_progress = Color.RED
 	elif HEALTH < 50:

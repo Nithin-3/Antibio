@@ -20,6 +20,7 @@ offset_right = -1053.25
 offset_bottom = -390.272
 
 [node name="Play" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 835.0
 offset_top = 352.0
 offset_right = 1443.0

@@ -72,7 +72,10 @@ tint_progress = Color(0.776471, 0, 1, 1)
 wait_time = 0.5
 one_shot = true
 
+[node name="mins" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="Connect" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Connect" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Mut" to="." method="_on_mut_timeout"]
+[connection signal="timeout" from="mins" to="." method="_on_mins_timeout"]
