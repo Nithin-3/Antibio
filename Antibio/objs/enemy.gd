@@ -9,6 +9,7 @@ var _2 = preload("res://asset/enemy/2.png")
 var _3 = preload("res://asset/enemy/3.png")
 var _4 = preload("res://asset/enemy/4.png")
 var _5 = preload("res://asset/enemy/5.png")
+var heal = preload("res://objs/Energy.tscn")
 var redu = true
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
@@ -17,7 +18,6 @@ func _ready():
 	$Timer.start()
 	$Connect.Target = self
 func _process(_delta):
-	$Connect.cont($Connect.Target.global_position)
 	if "MUTATION" in $Connect.Target and mut:
 		if $Connect.Target.MUTATION > MUTATION:
 			$Mut.start()
@@ -37,17 +37,24 @@ func _process(_delta):
 		if redu:
 			redu = false
 			$mins.start()
-			$"../Player".minus(1)
+			$"../Player".minus(int(MUTATION/100))
 	else :
 		position += rand * 3
 		move_and_slide()
 	if $"../Player".HEALTH < 1:
 		$Connect.queue_free()
+	else :
+		$Connect.cont($Connect.Target.global_position)
 func minus(val:int,force:float):
 	HEALTH -= val/int(MUTATION/100)
 	position -= global_position.direction_to($"../Player".position) * force 
 	if HEALTH < 1:
+		get_parent().KILLS += 1 
 		queue_free()
+		var inc = heal.instantiate()
+		inc.position = global_position
+		inc.HEAL = inc.HEAL* int(MUTATION/100)
+		get_parent().add_child(inc)
 	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
 	spred = true

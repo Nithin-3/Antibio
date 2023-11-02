@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm50d7vxmd7f5" path="res://asset/enemy/1.png" id="5_pbynd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tgt0"]
-radius = 156.994
+radius = 112.95
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uenfl"]
 shader = ExtResource("2_gfp8j")
@@ -47,7 +47,7 @@ scale = Vector2(0.323, 0.311)
 texture = ExtResource("5_pbynd")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 7.507
 one_shot = true
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_78e0n")]
