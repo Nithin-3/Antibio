@@ -21,6 +21,7 @@ _data = [Vector2(0.00347222, 1), 0.0, 0.0, 0, 0, Vector2(0.684028, 0.786477), 0.
 point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
 collision_mask = 11
 script = ExtResource("1_pc32l")
 
@@ -33,11 +34,12 @@ scale = Vector2(0.351293, 0.351178)
 texture = ExtResource("2_saton")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1, -78)
+position = Vector2(1, -88.75)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -300)
 zoom = Vector2(0.6, 0.6)
+limit_left = -1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
 

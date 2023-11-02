@@ -4,6 +4,7 @@ extends CharacterBody2D
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet = preload("res://objs/bullet.tscn")
+var n = 0
 var ang:Vector2
 func  _ready():
 	$HealthBar2D.value = HEALTH
@@ -26,13 +27,14 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_just_pressed("fire1"):
+		n = 1
 		ang = (get_global_mouse_position() - position).normalized()
 		$Aim.clear_points()
 		var direct = global_position.direction_to(get_global_mouse_position())
 		$Marker2D.position = direct*80
 		for add in range(60,300):
 			$Aim.add_point(direct * add)
-	if Input.is_action_just_pressed("fire2"):
+	if Input.is_action_just_pressed("fire2") and n ==1:
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
 		fir.rotation_degrees = rad_to_deg(ang.angle()) + 90
