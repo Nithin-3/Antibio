@@ -1,0 +1,121 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5yx87ooywurh"]
+
+[ext_resource type="Texture2D" uid="uid://cfxw8q2tqxlp6" path="res://asset/Animation Sprites/Retro Impact Effect Pack 3 D.png" id="1_vocas"]
+[ext_resource type="Script" path="res://explosion.gd" id="2_r8imj"]
+[ext_resource type="Script" path="res://ExploAnimationPlayer.gd" id="3_oxcni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvnhv"]
+atlas = ExtResource("1_vocas")
+region = Rect2(0, 576, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dct6d"]
+atlas = ExtResource("1_vocas")
+region = Rect2(32, 576, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch5xg"]
+atlas = ExtResource("1_vocas")
+region = Rect2(64, 576, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc4di"]
+atlas = ExtResource("1_vocas")
+region = Rect2(96, 576, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrspu"]
+atlas = ExtResource("1_vocas")
+region = Rect2(128, 576, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qercu"]
+atlas = ExtResource("1_vocas")
+region = Rect2(160, 576, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_us37g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvnhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dct6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch5xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc4di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrspu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qercu")
+}],
+"loop": true,
+"name": &"Exploion",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1js7t"]
+resource_name = "Explon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Exploion"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_2wcab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pq68x"]
+_data = {
+"Explon": SubResource("Animation_1js7t"),
+"RESET": SubResource("Animation_2wcab")
+}
+
+[node name="Explosion" type="AnimatedSprite2D"]
+position = Vector2(9.53674e-07, 1)
+scale = Vector2(1.875, 1.75)
+sprite_frames = SubResource("SpriteFrames_us37g")
+animation = &"Exploion"
+frame = 1
+speed_scale = 2.0
+script = ExtResource("2_r8imj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pq68x")
+}
+script = ExtResource("3_oxcni")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

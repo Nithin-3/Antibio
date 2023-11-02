@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
-radius = 64.0703
+radius = 51.0098
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 11
@@ -18,8 +18,8 @@ script = ExtResource("1_pc32l")
 shape = SubResource("CircleShape2D_a7u8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.499999, -2.29478e-06)
-scale = Vector2(0.351293, 0.351178)
+position = Vector2(-0.499998, -2.02656e-06)
+scale = Vector2(0.286638, 0.282655)
 texture = ExtResource("2_saton")
 
 [node name="Marker2D" type="Marker2D" parent="."]

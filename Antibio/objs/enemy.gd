@@ -9,7 +9,6 @@ var _2 = preload("res://asset/enemy/2.png")
 var _3 = preload("res://asset/enemy/3.png")
 var _4 = preload("res://asset/enemy/4.png")
 var _5 = preload("res://asset/enemy/5.png")
-#var explosion = preload("res://explotion.tscn")
 
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 func _ready():
