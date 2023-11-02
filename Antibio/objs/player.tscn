@@ -7,14 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dn7nnwxnw2fiv" path="res://asset/UI Buttons/RightN.png" id="4_akjeg"]
 [ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
 [ext_resource type="Shader" path="res://objs/player.gdshader" id="7_6swcf"]
-[ext_resource type="Texture2D" uid="uid://c3k4e2pr881br" path="res://asset/player/spans/Aim1.png" id="8_cwb3t"]
+[ext_resource type="Texture2D" uid="uid://caayf2428mwn2" path="res://asset/player/spans/aim2.png" id="8_pavgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
 radius = 64.0703
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4fxsr"]
 shader = ExtResource("7_6swcf")
-shader_parameter/Dir = 10.0
+shader_parameter/Dir = 5.0
 
 [sub_resource type="Curve" id="Curve_1w2vw"]
 _data = [Vector2(0.00347222, 1), 0.0, 0.0, 0, 0, Vector2(0.684028, 0.786477), 0.315357, 0.315357, 0, 0, Vector2(1, 0.430605), 0.0, 0.0, 0, 0]
@@ -102,5 +102,5 @@ tint_progress = Color(0, 1, 0, 1)
 material = SubResource("ShaderMaterial_4fxsr")
 width = 15.0
 width_curve = SubResource("Curve_1w2vw")
-texture = ExtResource("8_cwb3t")
+texture = ExtResource("8_pavgq")
 texture_mode = 1
