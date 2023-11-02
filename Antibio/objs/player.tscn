@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=12 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -14,7 +14,11 @@ radius = 64.0703
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4fxsr"]
 shader = ExtResource("7_6swcf")
-shader_parameter/Dir = 1.0
+shader_parameter/Dir = 10.0
+
+[sub_resource type="Curve" id="Curve_1w2vw"]
+_data = [Vector2(0.00347222, 1), 0.0, 0.0, 0, 0, Vector2(0.684028, 0.786477), 0.315357, 0.315357, 0, 0, Vector2(1, 0.430605), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 11
@@ -97,5 +101,6 @@ tint_progress = Color(0, 1, 0, 1)
 [node name="Aim" type="Line2D" parent="."]
 material = SubResource("ShaderMaterial_4fxsr")
 width = 15.0
+width_curve = SubResource("Curve_1w2vw")
 texture = ExtResource("8_cwb3t")
 texture_mode = 1
