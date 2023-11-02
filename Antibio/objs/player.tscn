@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=11 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -6,9 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bm8dirlgjh0m7" path="res://asset/UI Buttons/LeftN.png" id="3_fdmj8"]
 [ext_resource type="Texture2D" uid="uid://dn7nnwxnw2fiv" path="res://asset/UI Buttons/RightN.png" id="4_akjeg"]
 [ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
+[ext_resource type="Shader" path="res://objs/player.gdshader" id="7_6swcf"]
+[ext_resource type="Texture2D" uid="uid://c3k4e2pr881br" path="res://asset/player/spans/Aim1.png" id="8_cwb3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
-radius = 51.0098
+radius = 64.0703
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fxsr"]
+shader = ExtResource("7_6swcf")
+shader_parameter/Dir = 1.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 11
@@ -18,8 +24,8 @@ script = ExtResource("1_pc32l")
 shape = SubResource("CircleShape2D_a7u8s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.499998, -2.02656e-06)
-scale = Vector2(0.286638, 0.282655)
+position = Vector2(0.499999, -2.29478e-06)
+scale = Vector2(0.351293, 0.351178)
 texture = ExtResource("2_saton")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -87,3 +93,9 @@ offset_right = -126.0
 offset_bottom = -113.0
 scale = Vector2(22.9741, 11.6513)
 tint_progress = Color(0, 1, 0, 1)
+
+[node name="Aim" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_4fxsr")
+width = 15.0
+texture = ExtResource("8_cwb3t")
+texture_mode = 1

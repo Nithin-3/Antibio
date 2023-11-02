@@ -27,6 +27,11 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("fire1"):
 		ang = (get_global_mouse_position() - position).normalized()
+		$Aim.clear_points()
+		var direct = global_position.direction_to(get_global_mouse_position())
+		$Marker2D.position = direct*80
+		for add in range(60,1000):
+			$Aim.add_point(direct * add)
 	if Input.is_action_just_pressed("fire2"):
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
