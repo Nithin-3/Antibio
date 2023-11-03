@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi27tqtyr6w0r"]
+[gd_scene load_steps=5 format=3 uid="uid://bi27tqtyr6w0r"]
 
 [ext_resource type="Texture2D" uid="uid://bowg12kjedsnn" path="res://asset/UI Buttons/Play col_Button.png" id="1_gspos"]
 [ext_resource type="Script" path="res://Main.gd" id="1_lciku"]
 [ext_resource type="Texture2D" uid="uid://cjlpajlwp7ouc" path="res://asset/UI Buttons/Quit  col_Button.png" id="3_1gmn0"]
+[ext_resource type="AudioStream" uid="uid://cplhy04eh6u8k" path="res://asset/Audios/Main menu msuic.mp3" id="4_8dgla"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -57,6 +58,10 @@ grow_vertical = 0
 scale = Vector2(0.458326, 0.406347)
 icon = ExtResource("3_1gmn0")
 flat = true
+
+[node name="Main Menu music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8dgla")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/Play" to="CanvasLayer/Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control2/Quit" to="CanvasLayer/Control/Play" method="_on_quit_pressed"]
