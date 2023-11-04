@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=15 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_ev0u5"]
 [ext_resource type="Texture2D" uid="uid://bm8dirlgjh0m7" path="res://asset/UI Buttons/LeftN.png" id="3_fdmj8"]
+[ext_resource type="Script" path="res://objs/CanvasLayer.gd" id="3_g2jkc"]
 [ext_resource type="Texture2D" uid="uid://dn7nnwxnw2fiv" path="res://asset/UI Buttons/RightN.png" id="4_akjeg"]
 [ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
 [ext_resource type="Texture2D" uid="uid://ccduyfas0wcdy" path="res://asset/UI Buttons/Pause col_Square Button.png" id="6_eb7bk"]
@@ -44,84 +45,70 @@ zoom = Vector2(0.6, 0.6)
 limit_left = -1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+script = ExtResource("3_g2jkc")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.157
-anchor_top = 0.681
-anchor_right = 0.204
-anchor_bottom = 0.744
-offset_left = -180.864
-offset_top = -441.288
-offset_right = -195.008
-offset_bottom = -442.112
+[node name="HBoxContainer5" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer"]
+[node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 position = Vector2(173, 429)
 texture_normal = ExtResource("3_fdmj8")
 passby_press = true
 action = "ui_left"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.254
-anchor_top = 0.679
-anchor_right = 0.283
-anchor_bottom = 0.745
-offset_left = -292.608
-offset_top = -439.992
-offset_right = -286.016
-offset_bottom = -442.76
-
-[node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
+[node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 position = Vector2(276, 431)
 texture_normal = ExtResource("4_akjeg")
 passby_press = true
 action = "ui_right"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.762
-anchor_top = 0.681
-anchor_right = 0.798
-anchor_bottom = 0.739
-offset_left = -1242.82
-offset_top = -454.288
-offset_right = -1244.3
-offset_bottom = -451.872
-
-[node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
-position = Vector2(1248, 441)
+[node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
+position = Vector2(883.004, 428)
 texture_normal = ExtResource("5_qfbg3")
 passby_press = true
 action = "ui_up"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.929
-anchor_top = 0.031
-anchor_right = 0.969
-anchor_bottom = 0.112
-offset_left = -1070.21
-offset_top = -20.088
-offset_right = -1076.29
-offset_bottom = -32.576
-
-[node name="pause" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer4"]
+[node name="pause" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 modulate = Color(1, 1, 1, 0.623529)
 position = Vector2(1069, 28)
 scale = Vector2(0.265, 0.23)
 texture_normal = ExtResource("6_eb7bk")
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Bullet" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 modulate = Color(1, 1, 1, 0.639216)
 position = Vector2(829, 340)
 scale = Vector2(0.136719, 0.132813)
 texture_normal = ExtResource("7_ev14l")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.286275)
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/ColorRect"]
+layout_mode = 2
+offset_left = 451.0
+offset_top = 61.0
+offset_right = 563.0
+offset_bottom = 87.0
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Resume" type="TouchScreenButton" parent="Camera2D/CanvasLayer/ColorRect/HBoxContainer"]
+position = Vector2(442, 135)
+texture_normal = ExtResource("6_eb7bk")
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
@@ -138,10 +125,11 @@ width_curve = SubResource("Curve_1w2vw")
 texture = ExtResource("8_pavgq")
 texture_mode = 1
 
-[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer/Left" to="." method="_on_left_released"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer2/Right" to="." method="_on_right_pressed"]
-[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer2/Right" to="." method="_on_right_released"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer3/Jump" to="." method="_on_jump_pressed"]
-[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer4/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Left" to="." method="_on_left_pressed"]
+[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer5/Left" to="." method="_on_left_released"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Right" to="." method="_on_right_pressed"]
+[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer5/Right" to="." method="_on_right_released"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/pause" to="Camera2D/CanvasLayer" method="_on_pause_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Bullet" to="." method="_on_bullet_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer/Resume" to="Camera2D/CanvasLayer" method="_on_resume_pressed"]

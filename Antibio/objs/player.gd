@@ -77,8 +77,6 @@ func _on_jump_pressed():
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-func _on_pause_pressed():
-	get_tree().paused = true
 
 func _on_bullet_pressed():
 	if ang != Vector2.ZERO:
@@ -95,3 +93,7 @@ func _on_left_released():
 
 func _on_right_released():
 	right = false
+
+func _unhandled_input(event):
+	pass
+
