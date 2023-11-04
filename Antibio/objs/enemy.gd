@@ -53,7 +53,6 @@ func minus(val:int,force:float):
 	position -= global_position.direction_to($"../Player".position) * force 
 	if HEALTH < 1:
 		get_parent().KILLS += 1 
-		queue_free()
 		var inc = heal.instantiate()
 		inc.position = global_position
 		inc.HEAL = inc.HEAL* int(MUTATION/100)
@@ -62,6 +61,7 @@ func minus(val:int,force:float):
 		blueexplotion.position = get_global_position()
 		get_tree().get_root().add_child(blueexplotion)
 		blueexplotion.get_node("AnimationPlayer").play("ExplotionBlue")
+		queue_free()
 	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
 	spred = true
