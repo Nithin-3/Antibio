@@ -46,7 +46,7 @@ func minus(val:float):
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
 		get_tree().paused = true
-		$Aim.queue_free()
+		$Camera2D/CanvasLayer/Dead.visible = true
 	elif HEALTH < 30:
 		$HealthBar2D.tint_progress = Color.RED
 	elif HEALTH < 50:
@@ -93,7 +93,3 @@ func _on_left_released():
 
 func _on_right_released():
 	right = false
-
-func _unhandled_input(event):
-	pass
-

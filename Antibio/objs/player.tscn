@@ -43,7 +43,6 @@ position = Vector2(1, -88.75)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -300)
-zoom = Vector2(0.6, 0.6)
 limit_left = -1500
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
@@ -183,6 +182,55 @@ text = "GAME PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Dead" type="ColorRect" parent="Camera2D/CanvasLayer"]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.584314)
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer/Dead"]
+anchors_preset = 0
+offset_left = 806.0
+offset_top = 161.0
+offset_right = 1126.0
+offset_bottom = 316.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Dead/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.056
+anchor_bottom = 0.884
+offset_right = 0.0800171
+offset_bottom = -0.0200043
+theme_override_colors/font_color = Color(0.968627, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "DEAD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/CanvasLayer/Dead"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="restart" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Dead/VBoxContainer"]
+position = Vector2(664, 346)
+texture_normal = ExtResource("9_ps1v2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/CanvasLayer/Dead"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="menu" type="TouchScreenButton" parent="Camera2D/CanvasLayer/Dead/VBoxContainer2"]
+position = Vector2(679, 635)
+texture_normal = ExtResource("10_ncx8m")
+
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
 offset_top = -114.0
@@ -207,3 +255,5 @@ texture_mode = 1
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Bullet" to="." method="_on_bullet_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer/Resume" to="Camera2D/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer2/home" to="Camera2D/CanvasLayer" method="_on_home_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer/restart" to="Camera2D/CanvasLayer" method="_on_restart_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer2/menu" to="Camera2D/CanvasLayer" method="_on_menu_pressed"]
