@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=14 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bm8dirlgjh0m7" path="res://asset/UI Buttons/LeftN.png" id="3_fdmj8"]
 [ext_resource type="Texture2D" uid="uid://dn7nnwxnw2fiv" path="res://asset/UI Buttons/RightN.png" id="4_akjeg"]
 [ext_resource type="Texture2D" uid="uid://hh78iiaw5ls7" path="res://asset/UI Buttons/JumpN.png" id="5_qfbg3"]
+[ext_resource type="Texture2D" uid="uid://ccduyfas0wcdy" path="res://asset/UI Buttons/Pause col_Square Button.png" id="6_eb7bk"]
 [ext_resource type="Shader" path="res://objs/player.gdshader" id="7_6swcf"]
+[ext_resource type="Texture2D" uid="uid://oqp7qcxw5lgr" path="res://asset/UI Buttons/Bullet button.png" id="7_ev14l"]
 [ext_resource type="Texture2D" uid="uid://caayf2428mwn2" path="res://asset/player/spans/aim2.png" id="8_pavgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
@@ -71,7 +73,7 @@ offset_right = -286.016
 offset_bottom = -442.76
 
 [node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
-position = Vector2(277, 427)
+position = Vector2(276, 431)
 texture_normal = ExtResource("4_akjeg")
 action = "ui_right"
 
@@ -87,10 +89,37 @@ offset_right = -1244.3
 offset_bottom = -451.872
 
 [node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
-position = Vector2(1234, 441)
+position = Vector2(1248, 441)
 texture_normal = ExtResource("5_qfbg3")
 passby_press = true
 action = "ui_up"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.929
+anchor_top = 0.031
+anchor_right = 0.969
+anchor_bottom = 0.112
+offset_left = -1070.21
+offset_top = -20.088
+offset_right = -1076.29
+offset_bottom = -32.576
+
+[node name="pause" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer4"]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(1069, 28)
+scale = Vector2(0.265, 0.23)
+texture_normal = ExtResource("6_eb7bk")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Bullet" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
+modulate = Color(1, 1, 1, 0.639216)
+position = Vector2(829, 340)
+scale = Vector2(0.136719, 0.132813)
+texture_normal = ExtResource("7_ev14l")
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
