@@ -1,6 +1,6 @@
 
 extends Line2D
-var Target
+var Target = self
 func _on_area_2d_body_entered(body):
 	if str(body).to_lower()[0] =='e':
 		Target = body

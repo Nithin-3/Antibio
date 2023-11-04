@@ -19,7 +19,6 @@ func _ready():
 	mutat()
 	$Mutation.value = MUTATION
 	$Timer.start()
-	$Connect.Target = self
 func _process(_delta):
 	if "MUTATION" in $Connect.Target and mut:
 		if $Connect.Target.MUTATION > MUTATION:
