@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=16 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://objs/player.gdshader" id="7_6swcf"]
 [ext_resource type="Texture2D" uid="uid://oqp7qcxw5lgr" path="res://asset/UI Buttons/Bullet button.png" id="7_ev14l"]
 [ext_resource type="Texture2D" uid="uid://caayf2428mwn2" path="res://asset/player/spans/aim2.png" id="8_pavgq"]
+[ext_resource type="Texture2D" uid="uid://bowg12kjedsnn" path="res://asset/UI Buttons/Play col_Button.png" id="9_tn5wh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
 radius = 64.0703
@@ -93,10 +94,11 @@ color = Color(0, 0, 0, 0.286275)
 
 [node name="Label" type="Label" parent="Camera2D/CanvasLayer/ColorRect"]
 layout_mode = 2
-offset_left = 451.0
-offset_top = 61.0
-offset_right = 563.0
-offset_bottom = 87.0
+offset_left = 401.0
+offset_top = 55.0
+offset_right = 688.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 41
 text = "GAME PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -108,7 +110,13 @@ offset_bottom = 40.0
 
 [node name="Resume" type="TouchScreenButton" parent="Camera2D/CanvasLayer/ColorRect/HBoxContainer"]
 position = Vector2(442, 135)
+scale = Vector2(1, 0.44)
 texture_normal = ExtResource("6_eb7bk")
+
+[node name="home" type="TouchScreenButton" parent="Camera2D/CanvasLayer/ColorRect/HBoxContainer"]
+position = Vector2(408, 288)
+scale = Vector2(0.446667, 0.54)
+texture_normal = ExtResource("9_tn5wh")
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
@@ -133,3 +141,4 @@ texture_mode = 1
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/pause" to="Camera2D/CanvasLayer" method="_on_pause_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Bullet" to="." method="_on_bullet_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer/Resume" to="Camera2D/CanvasLayer" method="_on_resume_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer/home" to="Camera2D/CanvasLayer" method="_on_home_pressed"]
