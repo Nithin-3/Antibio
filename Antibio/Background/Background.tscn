@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://driltbslxfknx" path="res://Background/Bg.png" id="1_neyvu"]
 
 [node name="Background" type="Node2D"]
+modulate = Color(1, 0.517647, 0.376471, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(235, -2)
