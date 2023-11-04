@@ -7,29 +7,39 @@
 
 [node name="MainMenu" type="Node2D"]
 
+[node name="Main Menu music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8dgla")
+autoplay = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.728
-anchor_top = 0.558
-anchor_right = 0.949
-anchor_bottom = 0.664
-offset_left = -838.656
-offset_top = -361.584
-offset_right = -1053.25
-offset_bottom = -390.272
+anchor_left = 0.766
+anchor_top = 0.611
+anchor_right = 0.891
+anchor_bottom = 0.678
+offset_left = -905.72
+offset_top = -421.88
+offset_right = -935.994
+offset_bottom = -408.448
 
 [node name="Play" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 835.0
-offset_top = 352.0
-offset_right = 1443.0
-offset_bottom = 560.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.21338
+anchor_top = 4.77834
+anchor_right = 5.55202
+anchor_bottom = 5.76585
+offset_left = 13.2401
+offset_top = 0.000274658
+offset_right = 340.494
+offset_bottom = 123.28
 scale = Vector2(0.439999, 0.407326)
 icon = ExtResource("1_gspos")
 flat = true
 script = ExtResource("1_lciku")
+metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -44,24 +54,20 @@ offset_bottom = -501.728
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control2"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 797.0
-offset_top = 423.0
-offset_right = 1405.0
-offset_bottom = 631.0
+anchors_preset = -1
+anchor_left = 4.122
+anchor_top = 5.121
+anchor_right = 5.408
+anchor_bottom = 6.068
+offset_left = 0.0183716
+offset_top = -0.0389709
+offset_right = 329.422
+offset_bottom = 123.443
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.458326, 0.406347)
 icon = ExtResource("3_1gmn0")
 flat = true
-
-[node name="Main Menu music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_8dgla")
-autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/Play" to="CanvasLayer/Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control2/Quit" to="CanvasLayer/Control/Play" method="_on_quit_pressed"]
