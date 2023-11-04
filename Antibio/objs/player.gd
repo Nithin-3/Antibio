@@ -28,7 +28,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	if Input.is_action_just_pressed("fire1"):
+	if Input.is_action_pressed("fire1"):
 		ang = (get_global_mouse_position() - position).normalized()
 		$Aim.clear_points()
 		var direct = global_position.direction_to(get_global_mouse_position())

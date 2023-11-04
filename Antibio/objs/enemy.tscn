@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vbu8pf6lowbl"]
+[gd_scene load_steps=10 format=3 uid="uid://vbu8pf6lowbl"]
 
 [ext_resource type="Script" path="res://objs/enemy.gd" id="1_53wsn"]
 [ext_resource type="Texture2D" uid="uid://dkeaanb43pkci" path="res://asset/enemy/spans/connect.png" id="2_fin45"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpsrn4wc8548e" path="res://health_bar_2d/health_bar_2d.tscn" id="3_78e0n"]
 [ext_resource type="Script" path="res://objs/Connect.gd" id="4_fxugj"]
 [ext_resource type="Texture2D" uid="uid://bm50d7vxmd7f5" path="res://asset/enemy/1.png" id="5_pbynd"]
-[ext_resource type="AudioStream" uid="uid://f0q4r3te5gon" path="res://asset/Audios/mixkit-arcade-game-explosion-1699.wav" id="7_cjtg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tgt0"]
 radius = 224.855
@@ -75,12 +74,8 @@ one_shot = true
 
 [node name="mins" type="Timer" parent="."]
 
-[node name="Death sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_cjtg0")
-
 [connection signal="body_entered" from="Area2D" to="Connect" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Connect" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Mut" to="." method="_on_mut_timeout"]
 [connection signal="timeout" from="mins" to="." method="_on_mins_timeout"]
-[connection signal="finished" from="Death sound" to="." method="_on_death_sound_finished"]

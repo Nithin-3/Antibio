@@ -59,6 +59,7 @@ offset_bottom = -442.112
 [node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer"]
 position = Vector2(173, 429)
 texture_normal = ExtResource("3_fdmj8")
+passby_press = true
 action = "ui_left"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
@@ -75,6 +76,7 @@ offset_bottom = -442.76
 [node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
 position = Vector2(276, 431)
 texture_normal = ExtResource("4_akjeg")
+passby_press = true
 action = "ui_right"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
