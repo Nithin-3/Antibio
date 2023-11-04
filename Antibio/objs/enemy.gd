@@ -56,6 +56,7 @@ func minus(val:int,force:float):
 		inc.position = global_position
 		inc.HEAL = inc.HEAL* int(MUTATION/100)
 		$"..".call_deferred("add_child",inc)
+		$"Death sound".play()
 		var blueexplotion = blueexplon.instantiate()
 		blueexplotion.position = get_global_position()
 		get_tree().get_root().add_child(blueexplotion)
@@ -89,3 +90,7 @@ func mutat():
 
 func _on_mins_timeout():
 	redu = true
+
+
+func _on_death_sound_finished():
+	queue_free()
