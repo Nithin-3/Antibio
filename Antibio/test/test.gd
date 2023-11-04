@@ -27,9 +27,9 @@ func lev_strt(level):
 	node.MUTATION = 100*(level+1)
 	add_child(node)
 	for enmy in enmy_count:
-		node = ENEMY_NODE.instantiate()
-		node.position = Vector2(randi_range(-800,3000),randi_range(450,-1300))
-		add_child(node)
+		var nodes = ENEMY_NODE.instantiate()
+		nodes.position = Vector2(randi_range(-800,3000),randi_range(450,-1300))
+		add_child(nodes)
 	ENEMYS_COUNT += enmy_count
 
 func _process(_delta):
