@@ -2,12 +2,17 @@ extends Node2D
 var LEVEL = 1
 @export var ENEMYS_COUNT:int = 0
 @export var KILLS:int = 0
-
+var player_2 =preload("res://asset/player/Player2.png")
+var player_3 = preload("res://asset/player/Player3.png")
 func _ready():
 	lev_strt(1)
 
 
 func lev_strt(level):
+	if level == 3:
+		$Player/Sprite2D.texture = player_2
+	if level == 4:
+		$Player/Sprite2D.texture = player_3
 	print(level)
 	var enmy_count = 0
 	if (level == 1): 

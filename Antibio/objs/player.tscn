@@ -135,3 +135,11 @@ width = 15.0
 width_curve = SubResource("Curve_1w2vw")
 texture = ExtResource("8_pavgq")
 texture_mode = 1
+
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer/Left" to="." method="_on_left_released"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer2/Right" to="." method="_on_right_pressed"]
+[connection signal="released" from="Camera2D/CanvasLayer/HBoxContainer2/Right" to="." method="_on_right_released"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer3/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer4/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Bullet" to="." method="_on_bullet_pressed"]
