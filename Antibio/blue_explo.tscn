@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://nbr63fbb8a3s"]
+
+[ext_resource type="Texture2D" uid="uid://bovx1cp31w2rr" path="res://asset/Enemy Blast 2/Explosion_blue_circle1.png" id="1_7xmn4"]
+[ext_resource type="Texture2D" uid="uid://cjcw5w0ed4jl" path="res://asset/Enemy Blast 2/Explosion_blue_circle2.png" id="2_t66in"]
+[ext_resource type="Texture2D" uid="uid://f2hdykjjgfle" path="res://asset/Enemy Blast 2/Explosion_blue_circle3.png" id="3_adquc"]
+[ext_resource type="Texture2D" uid="uid://dr427f4u4aw2b" path="res://asset/Enemy Blast 2/Explosion_blue_circle4.png" id="4_bvhfo"]
+[ext_resource type="Texture2D" uid="uid://bvepn70h6jr5o" path="res://asset/Enemy Blast 2/Explosion_blue_circle5.png" id="5_it08u"]
+[ext_resource type="Texture2D" uid="uid://sedi8ieaq8ac" path="res://asset/Enemy Blast 2/Explosion_blue_circle6.png" id="6_xqgsj"]
+[ext_resource type="Texture2D" uid="uid://xaux1gqo6sew" path="res://asset/Enemy Blast 2/Explosion_blue_circle7.png" id="7_c500j"]
+[ext_resource type="Texture2D" uid="uid://dydqrhpedl8op" path="res://asset/Enemy Blast 2/Explosion_blue_circle8.png" id="8_1d4ui"]
+[ext_resource type="Texture2D" uid="uid://b357dc6o2jhl8" path="res://asset/Enemy Blast 2/Explosion_blue_circle9.png" id="9_54i2d"]
+[ext_resource type="Texture2D" uid="uid://dkx6w4mnwthf2" path="res://asset/Enemy Blast 2/Explosion_blue_circle10.png" id="10_p4lro"]
+[ext_resource type="Script" path="res://blue_explo.gd" id="11_0db02"]
+[ext_resource type="Script" path="res://BlueExplo.gd" id="11_eyj4o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dm3bu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7xmn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t66in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_adquc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bvhfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_it08u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xqgsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c500j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1d4ui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_54i2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p4lro")
+}],
+"loop": true,
+"name": &"BlueExplo",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hhvkj"]
+resource_name = "ExplotionBlue"
+step = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"BlueExplo"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48, 0.54),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_t3eru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyu5e"]
+_data = {
+"ExplotionBlue": SubResource("Animation_hhvkj"),
+"RESET": SubResource("Animation_t3eru")
+}
+
+[node name="BlueExplo" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dm3bu")
+animation = &"BlueExplo"
+frame = 1
+script = ExtResource("11_0db02")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tyu5e")
+}
+script = ExtResource("11_eyj4o")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="." to="AnimationPlayer" method="_on_blue_explo_animation_finished"]

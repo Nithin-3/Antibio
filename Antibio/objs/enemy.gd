@@ -12,6 +12,9 @@ var _5 = preload("res://asset/enemy/5.png")
 var heal = preload("res://objs/Energy.tscn")
 var redu = true
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
+
+var blueexplon = preload("res://blue_explo.tscn")
+
 func _ready():
 	mutat()
 	$Mutation.value = MUTATION
@@ -55,6 +58,10 @@ func minus(val:int,force:float):
 		inc.position = global_position
 		inc.HEAL = inc.HEAL* int(MUTATION/100)
 		get_parent().add_child(inc)
+		var blueexplotion = blueexplon.instantiate()
+		blueexplotion.position = get_global_position()
+		get_tree().get_root().add_child(blueexplotion)
+		blueexplotion.get_node("AnimationPlayer").play("ExplotionBlue")
 	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
 	spred = true
