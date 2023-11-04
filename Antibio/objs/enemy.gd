@@ -56,7 +56,7 @@ func minus(val:int,force:float):
 		var inc = heal.instantiate()
 		inc.position = global_position
 		inc.HEAL = inc.HEAL* int(MUTATION/100)
-		get_parent().add_child(inc)
+		$"..".call_deferred("add_child",inc)
 		var blueexplotion = blueexplon.instantiate()
 		blueexplotion.position = get_global_position()
 		get_tree().get_root().add_child(blueexplotion)
