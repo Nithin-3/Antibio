@@ -1,7 +1,7 @@
-extends Area2D
+extends Node2D
 @onready var bg = $Bg
 @onready var touch = $Bg/touch
-@onready var rad = $CollisionShape2D.shape.radius
+@onready var rad = 118
 var pres = false
 signal direct(DIR:Vector2)
 func _input(event):
