@@ -4,6 +4,7 @@ extends CharacterBody2D
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet = preload("res://objs/bullet.tscn")
+@onready var gunsound = $"Gun sound"
 var ang:Vector2 = Vector2.ZERO
 var left = false
 var right = false
@@ -80,6 +81,7 @@ func _on_jump_pressed():
 
 
 func _on_bullet_pressed():
+	gunsound.play()
 	if ang != Vector2.ZERO:
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
