@@ -43,7 +43,7 @@ texture = ExtResource("2_saton")
 
 [node name="Gun sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_ulom3")
-volume_db = -10.0
+volume_db = -15.0
 bus = &"SFX"
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -94,16 +94,17 @@ action = "ui_right"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.166
-anchor_top = 0.602
-anchor_right = 0.218
-anchor_bottom = 0.677
-offset_top = -650.16
-offset_right = -66.0799
-offset_bottom = -691.16
+anchor_left = 0.911
+anchor_top = 0.781
+anchor_right = 0.951
+anchor_bottom = 0.884
+offset_left = -1788.0
+offset_top = -843.48
+offset_right = -1825.28
+offset_bottom = -914.72
 
 [node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
-position = Vector2(-4.40015, 616)
+position = Vector2(1753.6, 821)
 scale = Vector2(2.542, 2.25)
 texture_normal = ExtResource("5_qfbg3")
 passby_press = true
