@@ -17,5 +17,5 @@ func _process(_delta):
 	if pres:
 		touch.global_position = get_global_mouse_position()
 		if touch.position.distance_to(Vector2(0,0)) > rad:
-			touch.position = touch.position.direction_to(Vector2(0,0)) * -(rad)
+			touch.position = touch.position.direction_to(Vector2(0,0)) * -(rad+300)
 		direct.emit(-1*(touch.position.direction_to(bg.position)))
