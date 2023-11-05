@@ -15,26 +15,26 @@ autoplay = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.766
-anchor_top = 0.611
-anchor_right = 0.891
-anchor_bottom = 0.678
-offset_left = -905.72
-offset_top = -421.88
-offset_right = -935.994
-offset_bottom = -408.448
+anchor_left = 0.743
+anchor_top = 0.591
+anchor_right = 0.848
+anchor_bottom = 0.646
+offset_left = -850.52
+offset_top = -400.28
+offset_right = -832.794
+offset_bottom = -373.888
 
 [node name="Play" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 4.21338
-anchor_top = 4.77834
-anchor_right = 5.55202
-anchor_bottom = 5.76585
+anchor_left = 3.06518
+anchor_top = 4.55753
+anchor_right = 4.106
+anchor_bottom = 5.545
 offset_left = 13.2401
 offset_top = 0.000274658
-offset_right = 340.494
-offset_bottom = 123.28
+offset_right = 340.505
+offset_bottom = 123.283
 scale = Vector2(0.439999, 0.407326)
 icon = ExtResource("1_gspos")
 flat = true
@@ -43,26 +43,26 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.734
-anchor_top = 0.722
-anchor_right = 0.964
-anchor_bottom = 0.836
-offset_left = -845.568
-offset_top = -467.856
-offset_right = -1070.53
-offset_bottom = -501.728
+anchor_left = 0.749
+anchor_top = 0.702
+anchor_right = 0.861
+anchor_bottom = 0.762
+offset_left = -881.568
+offset_top = -446.256
+offset_right = -823.33
+offset_bottom = -421.808
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 4.122
-anchor_top = 5.121
-anchor_right = 5.408
-anchor_bottom = 6.068
-offset_left = 0.0183716
-offset_top = -0.0389709
-offset_right = 329.422
-offset_bottom = 123.443
+anchor_left = 2.669
+anchor_top = 4.919
+anchor_right = 3.473
+anchor_bottom = 5.867
+offset_left = -15.8637
+offset_top = -0.0108643
+offset_right = 329.198
+offset_bottom = 123.382
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.458326, 0.406347)
