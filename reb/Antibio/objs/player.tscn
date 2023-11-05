@@ -142,6 +142,7 @@ modulate = Color(1, 1, 1, 0.639216)
 position = Vector2(1747.2, 472)
 scale = Vector2(0.359374, 0.302735)
 texture_normal = ExtResource("7_ev14l")
+passby_press = true
 
 [node name="Control" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
