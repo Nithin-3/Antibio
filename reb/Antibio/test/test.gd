@@ -10,6 +10,7 @@ func _ready():
 
 
 func lev_strt(level):
+	level = loads()
 	if level == 3:
 		$Player/Sprite2D.texture = player_2
 	if level == 4:
@@ -47,6 +48,7 @@ func lev_strt(level):
 func _process(_delta):
 	if (float(KILLS)/float(ENEMYS_COUNT))*100 >= 70.0:
 		LEVEL += 1
+		save(LEVEL)
 		lev_strt(LEVEL) 
 
 func _on_timer_timeout():
@@ -56,3 +58,19 @@ func _on_timer_timeout():
 func _on_home_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
+
+func loads() -> int:
+	if FileAccess.file_exists("user://data.nin"):
+		var file = FileAccess.open("user://data.nin",FileAccess.READ)
+		LEVEL = file.get_var(LEVEL)
+		ENEMYS_COUNT = file.get_var(ENEMYS_COUNT)
+		KILLS = file.get_var(KILLS)
+		return LEVEL
+	else :
+		return 1
+	
+func  save(lev:int):
+	var file = FileAccess.open("user://data.nin",FileAccess.WRITE)
+	file.store_var(lev)
+	file.store_var(ENEMYS_COUNT)
+	file.store_var(KILLS)
