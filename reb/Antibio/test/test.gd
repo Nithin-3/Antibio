@@ -9,7 +9,6 @@ func _ready():
 
 
 func lev_strt(level):
-	$CanvasLayer/ColorRect/Label.text = "LEVEL "+str(level)
 	if level == 3:
 		$Player/Sprite2D.texture = player_2
 	if level == 4:
@@ -35,7 +34,14 @@ func lev_strt(level):
 	node.MUTATION = 100 * (level+1)
 	node.mutat()
 	ENEMYS_COUNT += enmy_count
+	$CanvasLayer/Timer.start()
+	$CanvasLayer/ColorRect.visible = true
+	$CanvasLayer/ColorRect/Label.text = "LEVEL "+str(level)
 func _process(_delta):
 	if (float(KILLS)/float(ENEMYS_COUNT))*100 >= 70.0:
 		LEVEL += 1
 		lev_strt(LEVEL) 
+
+
+func _on_timer_timeout():
+	$CanvasLayer/ColorRect.visible = false
