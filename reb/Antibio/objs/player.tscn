@@ -107,7 +107,6 @@ offset_bottom = -914.72
 position = Vector2(1753.6, 821)
 scale = Vector2(2.542, 2.25)
 texture_normal = ExtResource("5_qfbg3")
-passby_press = true
 action = "ui_up"
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
@@ -311,8 +310,7 @@ offset_right = -1920.8
 offset_bottom = -833.72
 
 [node name="Aim" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("11_w72i3")]
-position = Vector2(1883.2, 725)
-scale = Vector2(1.5, 1.5)
+position = Vector2(1847.2, 779)
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0

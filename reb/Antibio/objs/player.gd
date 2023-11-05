@@ -98,11 +98,11 @@ func _on_right_released():
 	right = false
 
 
+
 func _on_aim_direct(DIR):
 	ang = DIR
 	$Aim.clear_points()
 	$Marker2D.position = DIR*80
 	for add in range(60,300):
 		$Aim.add_point(DIR * add)
-
 
