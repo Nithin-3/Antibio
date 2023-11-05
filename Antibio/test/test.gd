@@ -29,7 +29,7 @@ func lev_strt(level):
 	for enmy in enmy_count:
 		var nodes = node.duplicate()
 		nodes.name = 'e'+str(enmy)
-		nodes.position = Vector2(randi_range(-800,3000),randi_range(450,-1300))
+		nodes.position = Vector2(randi_range(-930,10890),randi_range(450,-2130))
 		add_child(nodes)
 	node.MUTATION = 100 * (level+1)
 	node.mutat()

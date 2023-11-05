@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=18 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://caayf2428mwn2" path="res://asset/player/spans/aim2.png" id="8_pavgq"]
 [ext_resource type="Texture2D" uid="uid://ddp5tf5iul3od" path="res://asset/Continue  col_Button.png" id="9_ps1v2"]
 [ext_resource type="Texture2D" uid="uid://b127dfjwxbekn" path="res://asset/Menu  col_Button.png" id="10_ncx8m"]
+[ext_resource type="PackedScene" uid="uid://mouxgaj52hvv" path="res://objs/aim.tscn" id="11_w72i3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
 radius = 64.0703
@@ -231,6 +232,9 @@ offset_bottom = 40.0
 position = Vector2(679, 635)
 texture_normal = ExtResource("10_ncx8m")
 
+[node name="Aim" parent="Camera2D/CanvasLayer" instance=ExtResource("11_w72i3")]
+position = Vector2(387, 492)
+
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
 offset_top = -114.0
@@ -257,3 +261,4 @@ texture_mode = 1
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer2/home" to="Camera2D/CanvasLayer" method="_on_home_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer/restart" to="Camera2D/CanvasLayer" method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer2/menu" to="Camera2D/CanvasLayer" method="_on_menu_pressed"]
+[connection signal="direct" from="Camera2D/CanvasLayer/Aim" to="." method="_on_aim_direct"]

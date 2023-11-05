@@ -28,13 +28,13 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
-	if Input.is_action_pressed("fire1"):
-		ang = (get_global_mouse_position() - position).normalized()
-		$Aim.clear_points()
-		var direct = global_position.direction_to(get_global_mouse_position())
-		$Marker2D.position = direct*80
-		for add in range(60,300):
-			$Aim.add_point(direct * add)
+#	if Input.is_action_pressed("fire1"):
+#		ang = (get_global_mouse_position() - position).normalized()
+#		$Aim.clear_points()
+#		var direct = global_position.direction_to(get_global_mouse_position())
+#		$Marker2D.position = direct*80
+#		for add in range(60,300):
+#			$Aim.add_point(direct * add)
 	if Input.is_action_just_pressed("fire2") and ang != Vector2.ZERO:
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
@@ -93,3 +93,11 @@ func _on_left_released():
 
 func _on_right_released():
 	right = false
+
+
+func _on_aim_direct(DIR):
+	ang = DIR
+	$Aim.clear_points()
+	$Marker2D.position = DIR*80
+	for add in range(60,300):
+		$Aim.add_point(DIR * add)
