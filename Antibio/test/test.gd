@@ -9,6 +9,7 @@ func _ready():
 
 
 func lev_strt(level):
+	$CanvasLayer/ColorRect/Label.text = "LEVEL "+str(level)
 	if level == 3:
 		$Player/Sprite2D.texture = player_2
 	if level == 4:
