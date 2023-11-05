@@ -45,6 +45,7 @@ func minus(val:float):
 	HEALTH -= val
 	$HealthBar2D.value = HEALTH
 	if HEALTH <=0 :
+		$Aim.visible = false
 		get_tree().paused = true
 		$Camera2D/CanvasLayer/Dead.visible = true
 	elif HEALTH < 30:

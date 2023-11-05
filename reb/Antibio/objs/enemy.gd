@@ -48,7 +48,7 @@ func _process(_delta):
 		position += rand * 3
 		move_and_slide()
 	if $"../Player".HEALTH < 1:
-		$Connect.queue_free()
+		$Connect.visible = false
 	else :
 		$Connect.cont($Connect.Target.global_position)
 func minus(val:int,force:float):
