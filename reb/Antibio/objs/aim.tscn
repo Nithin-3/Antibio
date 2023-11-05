@@ -4,23 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://d0fu44vsip2wr" path="res://asset/BG.png" id="2_xvoha"]
 [ext_resource type="Texture2D" uid="uid://y60lwk5e2f3w" path="res://asset/touch.png" id="3_bqubv"]
 
-[node name="Aim" type="Node2D"]
+[node name="Aim" type="TouchScreenButton"]
+passby_press = true
 script = ExtResource("1_1prcn")
 
 [node name="Bg" type="Sprite2D" parent="."]
 scale = Vector2(0.230469, 0.230469)
 texture = ExtResource("2_xvoha")
 
-[node name="touch" type="Sprite2D" parent="Bg"]
-scale = Vector2(0.478261, 0.470588)
+[node name="touch" type="Sprite2D" parent="."]
+scale = Vector2(0.110224, 0.108456)
 texture = ExtResource("3_bqubv")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -121.0
-offset_top = -120.0
-offset_right = 120.0
-offset_bottom = 119.0
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 237.0
+offset_bottom = 234.0
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

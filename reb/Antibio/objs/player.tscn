@@ -143,6 +143,20 @@ position = Vector2(1747.2, 472)
 scale = Vector2(0.359374, 0.302735)
 texture_normal = ExtResource("7_ev14l")
 
+[node name="Control" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.746
+anchor_top = 0.532
+anchor_right = 0.866
+anchor_bottom = 0.809
+offset_left = -1713.6
+offset_top = -574.56
+offset_right = -1920.8
+offset_bottom = -833.72
+
+[node name="Aim" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("11_w72i3")]
+position = Vector2(1847.2, 779)
+
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
 process_mode = 2
 visible = false
@@ -298,20 +312,6 @@ position = Vector2(1012, 644)
 scale = Vector2(0.73, 0.685)
 texture_normal = ExtResource("10_ncx8m")
 
-[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
-layout_mode = 3
-anchor_left = 0.746
-anchor_top = 0.532
-anchor_right = 0.866
-anchor_bottom = 0.809
-offset_left = -1713.6
-offset_top = -574.56
-offset_right = -1920.8
-offset_bottom = -833.72
-
-[node name="Aim" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("11_w72i3")]
-position = Vector2(1847.2, 779)
-
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
 offset_top = -114.0
@@ -334,9 +334,9 @@ texture_mode = 1
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer3/Jump" to="." method="_on_jump_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer4/pause" to="Camera2D/CanvasLayer" method="_on_pause_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/HBoxContainer5/Bullet" to="." method="_on_bullet_pressed"]
+[connection signal="direct" from="Camera2D/CanvasLayer/Control/Aim" to="." method="_on_aim_direct"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer/Resume" to="Camera2D/CanvasLayer" method="_on_resume_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer2/home" to="Camera2D/CanvasLayer" method="_on_home_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer3/restart" to="Camera2D/CanvasLayer" method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer/restart" to="Camera2D/CanvasLayer" method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer2/menu" to="Camera2D/CanvasLayer" method="_on_menu_pressed"]
-[connection signal="direct" from="Camera2D/CanvasLayer/Control/Aim" to="." method="_on_aim_direct"]
