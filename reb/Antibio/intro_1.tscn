@@ -7,11 +7,6 @@
 [node name="Intro1" type="Node2D"]
 script = ExtResource("1_h7si5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1208, 553)
-scale = Vector2(1, 1.01667)
-texture = ExtResource("1_fh8ao")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
@@ -21,5 +16,10 @@ offset_bottom = 1091.0
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/HBoxContainer"]
 scale = Vector2(1.00458, 1.00463)
 texture_normal = ExtResource("1_bdm4l")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+position = Vector2(1208, 553)
+scale = Vector2(1, 1.01667)
+texture = ExtResource("1_fh8ao")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
