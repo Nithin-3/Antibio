@@ -12,6 +12,7 @@ var _5 = preload("res://asset/enemy/5.png")
 var heal = preload("res://objs/Energy.tscn")
 var redu = true
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
+@onready var deathsound = $"Death Explotion"
 
 var blueexplon = preload("res://blue_explo.tscn")
 
@@ -92,4 +93,8 @@ func _on_mins_timeout():
 
 
 func _on_death_sound_finished():
+	queue_free()
+
+
+func _on_death_explotion_finished():
 	queue_free()
