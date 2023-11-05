@@ -4,6 +4,7 @@ extends CharacterBody2D
 var HEALTH = 100.0 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet = preload("res://objs/bullet.tscn")
+@onready var gunsound = $"Gun sound"
 var ang:Vector2 = Vector2.ZERO
 var left = false
 var right = false
@@ -36,6 +37,7 @@ func _physics_process(delta):
 #		for add in range(60,300):
 #			$Aim.add_point(direct * add)
 	if Input.is_action_just_pressed("fire2") and ang != Vector2.ZERO:
+		gunsound.play()
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
 		fir.rotation_degrees = rad_to_deg(ang.angle()) + 90

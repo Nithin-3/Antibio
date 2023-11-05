@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cvbnnbkpy5yjl"]
+[gd_scene load_steps=20 format=3 uid="uid://cvbnnbkpy5yjl"]
 
 [ext_resource type="Script" path="res://objs/player.gd" id="1_pc32l"]
 [ext_resource type="Texture2D" uid="uid://bbgpqhtw1gtmo" path="res://asset/player/coronavirus-blue-rim-light-idle1_26.png" id="2_saton"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b127dfjwxbekn" path="res://asset/Menu  col_Button.png" id="10_ncx8m"]
 [ext_resource type="Texture2D" uid="uid://c3e3gbp3u0v1h" path="res://asset/UI Buttons/Return col_Square Button.png" id="11_rywcm"]
 [ext_resource type="PackedScene" uid="uid://mouxgaj52hvv" path="res://objs/aim.tscn" id="11_w72i3"]
+[ext_resource type="AudioStream" uid="uid://j5007kdlopih" path="res://asset/Audios/SFX/teleport-14639.mp3" id="16_ulom3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a7u8s"]
 radius = 64.0703
@@ -39,6 +40,11 @@ shape = SubResource("CircleShape2D_a7u8s")
 position = Vector2(0.499999, -2.29478e-06)
 scale = Vector2(0.351293, 0.351178)
 texture = ExtResource("2_saton")
+
+[node name="Gun sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_ulom3")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1, -88.75)
