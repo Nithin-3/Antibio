@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl6mohx0v5x1s"]
+
+[ext_resource type="Texture2D" uid="uid://cpw05as22e2f" path="res://asset/New Project (10).png" id="1_8u1n0"]
+[ext_resource type="Script" path="res://intro_2.gd" id="1_71f48"]
+[ext_resource type="Texture2D" uid="uid://n6gqgbhi7iy7" path="res://asset/New Project (8).png" id="1_e8svj"]
+
+[node name="Intro2" type="Node2D"]
+script = ExtResource("1_71f48")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1204, 545)
+texture = ExtResource("1_e8svj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 2411.0
+offset_bottom = 1081.0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="HBoxContainer"]
+texture_normal = ExtResource("1_8u1n0")
+
+[connection signal="pressed" from="HBoxContainer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
