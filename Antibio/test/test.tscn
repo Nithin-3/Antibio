@@ -3214,3 +3214,5 @@ position = Vector2(1673, -713)
 
 [node name="Player" parent="." instance=ExtResource("3_jlim1")]
 position = Vector2(9041, 761)
+
+[node name="Bg Music" type="AudioStreamPlayer2D" parent="."]
