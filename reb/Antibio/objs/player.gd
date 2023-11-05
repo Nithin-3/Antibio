@@ -102,3 +102,5 @@ func _on_aim_direct(DIR):
 	$Marker2D.position = DIR*80
 	for add in range(60,300):
 		$Aim.add_point(DIR * add)
+
+
