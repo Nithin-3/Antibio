@@ -19,11 +19,6 @@ func _on_timer_timeout():
 func minus(_val:int,_force:float):
 	destroy()
 
-func _on_audio_stream_player_2d_finished():
-	queue_free()
-
-
-
 func _on_body_entered(body):
 	if str(body)[0] == "B" and live:
 		live = false
