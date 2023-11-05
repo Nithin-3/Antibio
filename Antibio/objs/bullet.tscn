@@ -1,10 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://c151h12c6u75v"]
+[gd_scene load_steps=16 format=3 uid="uid://c151h12c6u75v"]
 
 [ext_resource type="Texture2D" uid="uid://ceoluf2vrq8qm" path="res://asset/player/spans/bullet.png" id="1_6biwy"]
 [ext_resource type="Script" path="res://objs/bullet.gd" id="1_jb0p5"]
+[ext_resource type="Texture2D" uid="uid://bemb6sqffbm7a" path="res://asset/Bullet Animation/11.png" id="2_wifui"]
+[ext_resource type="Texture2D" uid="uid://7rvqkwgmghc5" path="res://asset/Bullet Animation/12.png" id="3_robbg"]
+[ext_resource type="Texture2D" uid="uid://ds3ubnh881lvs" path="res://asset/Bullet Animation/13.png" id="4_rq8an"]
+[ext_resource type="Texture2D" uid="uid://pyhiyqsb2g6n" path="res://asset/Bullet Animation/14.png" id="5_w025i"]
+[ext_resource type="Texture2D" uid="uid://hgam05fg504s" path="res://asset/Bullet Animation/15.png" id="6_g8g4l"]
+[ext_resource type="Texture2D" uid="uid://bm84re5d3dbut" path="res://asset/Bullet Animation/16.png" id="7_5aftu"]
+[ext_resource type="Texture2D" uid="uid://bpbict2rqs0w7" path="res://asset/Bullet Animation/17.png" id="8_gjq1x"]
+[ext_resource type="Texture2D" uid="uid://cskmio4j5qevw" path="res://asset/Bullet Animation/18.png" id="9_o6seg"]
+[ext_resource type="Texture2D" uid="uid://be6q6ucv0ckl8" path="res://asset/Bullet Animation/19.png" id="10_a6e4t"]
+[ext_resource type="Texture2D" uid="uid://cje2ejwft340q" path="res://asset/Bullet Animation/20.png" id="11_h86i4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pv8gl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wifui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_robbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rq8an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w025i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g8g4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5aftu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gjq1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o6seg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a6e4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h86i4")
+}],
+"loop": true,
+"name": &"Bullet Anim",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w8ujr"]
-radius = 13.0
+radius = 10.7991
 height = 138.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxi5p"]
@@ -19,7 +67,15 @@ script = ExtResource("1_jb0p5")
 speed = 2000
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_pv8gl")
+animation = &"Bullet Anim"
+autoplay = "Bullet Anim"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.128125, 0.110938)
 texture = ExtResource("1_6biwy")
 
