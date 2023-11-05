@@ -61,8 +61,8 @@ offset_right = -286.4
 offset_bottom = -722.48
 
 [node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer"]
-position = Vector2(248, 672)
-scale = Vector2(1.705, 1.828)
+position = Vector2(240.24, 731)
+scale = Vector2(2.36312, 2.25)
 texture_normal = ExtResource("3_fdmj8")
 passby_press = true
 action = "ui_left"
@@ -79,8 +79,8 @@ offset_right = -443.84
 offset_bottom = -720.32
 
 [node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
-position = Vector2(390, 677)
-scale = Vector2(1.92187, 1.82813)
+position = Vector2(393.32, 735)
+scale = Vector2(2.4325, 2.29687)
 texture_normal = ExtResource("4_akjeg")
 passby_press = true
 action = "ui_right"
@@ -98,7 +98,7 @@ offset_bottom = -773.24
 
 [node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
 position = Vector2(1572, 716)
-scale = Vector2(1.922, 1.701)
+scale = Vector2(2.542, 2.25)
 texture_normal = ExtResource("5_qfbg3")
 passby_press = true
 action = "ui_up"
@@ -133,8 +133,8 @@ offset_bottom = -637.16
 
 [node name="Bullet" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 modulate = Color(1, 1, 1, 0.639216)
-position = Vector2(1447, 565)
-scale = Vector2(0.294921, 0.261719)
+position = Vector2(1450.2, 541)
+scale = Vector2(0.359374, 0.302735)
 texture_normal = ExtResource("7_ev14l")
 
 [node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
@@ -232,8 +232,20 @@ offset_bottom = 40.0
 position = Vector2(679, 635)
 texture_normal = ExtResource("10_ncx8m")
 
-[node name="Aim" parent="Camera2D/CanvasLayer" instance=ExtResource("11_w72i3")]
-position = Vector2(387, 492)
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
+layout_mode = 3
+anchor_left = 0.16
+anchor_top = 0.365
+anchor_right = 0.245
+anchor_bottom = 0.54
+offset_left = -307.2
+offset_top = -394.2
+offset_right = -430.4
+offset_bottom = -543.2
+
+[node name="Aim" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("11_w72i3")]
+position = Vector2(408.2, 528)
+scale = Vector2(1.3, 1.3)
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
@@ -261,4 +273,4 @@ texture_mode = 1
 [connection signal="pressed" from="Camera2D/CanvasLayer/ColorRect/HBoxContainer2/home" to="Camera2D/CanvasLayer" method="_on_home_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer/restart" to="Camera2D/CanvasLayer" method="_on_restart_pressed"]
 [connection signal="pressed" from="Camera2D/CanvasLayer/Dead/VBoxContainer2/menu" to="Camera2D/CanvasLayer" method="_on_menu_pressed"]
-[connection signal="direct" from="Camera2D/CanvasLayer/Aim" to="." method="_on_aim_direct"]
+[connection signal="direct" from="Camera2D/CanvasLayer/Control/Aim" to="." method="_on_aim_direct"]
