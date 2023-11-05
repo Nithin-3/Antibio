@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi27tqtyr6w0r"]
+[gd_scene load_steps=6 format=3 uid="uid://bi27tqtyr6w0r"]
 
 [ext_resource type="Texture2D" uid="uid://bowg12kjedsnn" path="res://asset/UI Buttons/Play col_Button.png" id="1_gspos"]
 [ext_resource type="Script" path="res://Main.gd" id="1_lciku"]
 [ext_resource type="Texture2D" uid="uid://cjlpajlwp7ouc" path="res://asset/UI Buttons/Quit  col_Button.png" id="3_1gmn0"]
 [ext_resource type="AudioStream" uid="uid://cplhy04eh6u8k" path="res://asset/Audios/Main menu msuic.mp3" id="4_8dgla"]
+[ext_resource type="Texture2D" uid="uid://b6hdojfsg3efo" path="res://asset/back (1).png" id="5_aad06"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -15,27 +16,27 @@ autoplay = true
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.743
-anchor_top = 0.591
-anchor_right = 0.848
-anchor_bottom = 0.646
-offset_left = -850.52
-offset_top = -400.28
-offset_right = -832.794
-offset_bottom = -373.888
+anchor_left = 0.061
+anchor_top = 0.64
+anchor_right = 0.202
+anchor_bottom = 0.738
+offset_left = 786.28
+offset_top = -453.2
+offset_right = 717.606
+offset_bottom = -473.248
 
 [node name="Play" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 3.06518
-anchor_top = 4.55753
-anchor_right = 4.106
-anchor_bottom = 5.545
+anchor_left = -3.00275
+anchor_top = 5.24524
+anchor_right = -1.601
+anchor_bottom = 6.591
 offset_left = 13.2401
 offset_top = 0.000274658
-offset_right = 340.505
-offset_bottom = 123.283
-scale = Vector2(0.439999, 0.407326)
+offset_right = 243.152
+offset_bottom = 92.5448
+scale = Vector2(0.6, 0.555)
 icon = ExtResource("1_gspos")
 flat = true
 script = ExtResource("1_lciku")
@@ -43,31 +44,36 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.749
-anchor_top = 0.702
-anchor_right = 0.861
-anchor_bottom = 0.762
-offset_left = -881.568
-offset_top = -446.256
-offset_right = -823.33
-offset_bottom = -421.808
+anchor_left = 0.061
+anchor_top = 0.796
+anchor_right = 0.205
+anchor_bottom = 0.881
+offset_left = 769.632
+offset_top = -547.776
+offset_right = 751.07
+offset_bottom = -550.328
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 2.669
-anchor_top = 4.919
-anchor_right = 3.473
-anchor_bottom = 5.867
-offset_left = -15.8637
-offset_top = -0.0108643
-offset_right = 329.198
-offset_bottom = 123.382
+anchor_left = -2.382
+anchor_top = 5.996
+anchor_right = -1.267
+anchor_bottom = 7.235
+offset_left = -0.027771
+offset_top = -0.0349121
+offset_right = 243.325
+offset_bottom = 97.3868
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(0.458326, 0.406347)
+scale = Vector2(0.6, 0.532)
 icon = ExtResource("3_1gmn0")
 flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1218.5, 634.5)
+scale = Vector2(0.443857, 0.326932)
+texture = ExtResource("5_aad06")
 
 [connection signal="pressed" from="CanvasLayer/Control/Play" to="CanvasLayer/Control/Play" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control2/Quit" to="CanvasLayer/Control/Play" method="_on_quit_pressed"]
