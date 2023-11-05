@@ -23,6 +23,9 @@ func _process(_delta):
 	if "MUTATION" in $Connect.Target and mut:
 		if $Connect.Target.MUTATION > MUTATION:
 			$Mut.start()
+			MUTATION += 2
+			$Mutation.value = MUTATION
+			mutat()
 			mut = false
 	if spred:
 		rand = Vector2(randf_range(-1,1),randf_range(-1,1))
@@ -66,9 +69,6 @@ func _on_timer_timeout():
 	spred = true
 func _on_mut_timeout():
 	mut = true
-	MUTATION += 2
-	$Mutation.value = MUTATION
-	mutat()
 func mutat():
 	if int(MUTATION/100) == 1:
 		$Sprite2D.texture = _1
