@@ -3211,6 +3211,7 @@ position = Vector2(3620, -362)
 scale = Vector2(4.28, 1.88)
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_cam81")
 format = 2
