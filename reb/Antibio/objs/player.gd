@@ -37,7 +37,6 @@ func _physics_process(delta):
 #		for add in range(60,300):
 #			$Aim.add_point(direct * add)
 	if Input.is_action_just_pressed("fire2") and ang != Vector2.ZERO:
-		gunsound.play()
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position
 		fir.rotation_degrees = rad_to_deg(ang.angle()) + 90
@@ -82,6 +81,7 @@ func _on_jump_pressed():
 
 
 func _on_bullet_pressed():
+	gunsound.play()
 	if ang != Vector2.ZERO:
 		var fir = bullet.instantiate() as Area2D
 		fir.position = $Marker2D.global_position

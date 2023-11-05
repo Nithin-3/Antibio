@@ -8,7 +8,6 @@ var player_3 = preload("res://asset/player/Player3.png")
 func _ready():
 	lev_strt(1)
 
-
 func lev_strt(level):
 	level = loads()
 	if level == 3:

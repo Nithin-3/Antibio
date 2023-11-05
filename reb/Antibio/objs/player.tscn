@@ -59,16 +59,16 @@ script = ExtResource("3_g2jkc")
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.137
-anchor_top = 0.625
-anchor_right = 0.17
-anchor_bottom = 0.706
+anchor_top = 0.709
+anchor_right = 0.181
+anchor_bottom = 0.794
 offset_left = -263.04
-offset_top = -675.0
-offset_right = -286.4
-offset_bottom = -722.48
+offset_top = -765.72
+offset_right = -312.8
+offset_bottom = -817.52
 
 [node name="Left" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer"]
-position = Vector2(240.24, 731)
+position = Vector2(240.24, 736)
 scale = Vector2(2.36312, 2.25)
 texture_normal = ExtResource("3_fdmj8")
 passby_press = true
@@ -76,14 +76,14 @@ action = "ui_left"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.216
-anchor_top = 0.646
+anchor_left = 0.217
+anchor_top = 0.703
 anchor_right = 0.252
-anchor_bottom = 0.704
-offset_left = -414.72
-offset_top = -697.68
+anchor_bottom = 0.805
+offset_left = -417.12
+offset_top = -759.24
 offset_right = -443.84
-offset_bottom = -720.32
+offset_bottom = -829.4
 
 [node name="Right" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer2"]
 position = Vector2(393.32, 735)
@@ -94,17 +94,16 @@ action = "ui_right"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.83
-anchor_top = 0.677
-anchor_right = 0.869
-anchor_bottom = 0.753
-offset_left = -1593.6
-offset_top = -731.16
-offset_right = -1628.48
-offset_bottom = -773.24
+anchor_left = 0.166
+anchor_top = 0.602
+anchor_right = 0.218
+anchor_bottom = 0.677
+offset_top = -650.16
+offset_right = -66.0799
+offset_bottom = -691.16
 
 [node name="Jump" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer3"]
-position = Vector2(1572, 716)
+position = Vector2(-4.40015, 616)
 scale = Vector2(2.542, 2.25)
 texture_normal = ExtResource("5_qfbg3")
 passby_press = true
@@ -129,18 +128,18 @@ texture_normal = ExtResource("6_eb7bk")
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="Camera2D/CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.76
-anchor_top = 0.541
-anchor_right = 0.819
-anchor_bottom = 0.627
-offset_left = -1459.2
-offset_top = -584.28
-offset_right = -1532.48
-offset_bottom = -637.16
+anchor_left = 0.889
+anchor_top = 0.451
+anchor_right = 0.948
+anchor_bottom = 0.563
+offset_left = -1768.8
+offset_top = -487.08
+offset_right = -1842.08
+offset_bottom = -568.04
 
 [node name="Bullet" type="TouchScreenButton" parent="Camera2D/CanvasLayer/HBoxContainer5"]
 modulate = Color(1, 1, 1, 0.639216)
-position = Vector2(1450.2, 541)
+position = Vector2(1747.2, 472)
 scale = Vector2(0.359374, 0.302735)
 texture_normal = ExtResource("7_ev14l")
 
@@ -301,18 +300,18 @@ texture_normal = ExtResource("10_ncx8m")
 
 [node name="Control" type="Control" parent="Camera2D/CanvasLayer"]
 layout_mode = 3
-anchor_left = 0.16
-anchor_top = 0.365
-anchor_right = 0.245
-anchor_bottom = 0.54
-offset_left = -307.2
-offset_top = -394.2
-offset_right = -430.4
-offset_bottom = -543.2
+anchor_left = 0.746
+anchor_top = 0.532
+anchor_right = 0.866
+anchor_bottom = 0.809
+offset_left = -1713.6
+offset_top = -574.56
+offset_right = -1920.8
+offset_bottom = -833.72
 
 [node name="Aim" parent="Camera2D/CanvasLayer/Control" instance=ExtResource("11_w72i3")]
-position = Vector2(408.2, 528)
-scale = Vector2(1.3, 1.3)
+position = Vector2(1883.2, 725)
+scale = Vector2(1.5, 1.5)
 
 [node name="HealthBar2D" parent="." instance=ExtResource("3_ev0u5")]
 offset_left = -138.0
