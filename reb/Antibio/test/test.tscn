@@ -3201,6 +3201,7 @@ sources/4 = SubResource("TileSetAtlasSource_b0uho")
 script = ExtResource("1_ksyj1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_xlbnf")
 volume_db = -10.0
 autoplay = true

@@ -2,6 +2,7 @@ extends CharacterBody2D
 var spred:bool = true
 var HEALTH:float = 100.0
 @export var MUTATION:int = 100
+var live:bool = true
 var span = preload("res://objs/spans.tscn")
 var mut:bool = true
 var _1 = preload("res://asset/enemy/1.png")
@@ -12,10 +13,8 @@ var _5 = preload("res://asset/enemy/5.png")
 var heal = preload("res://objs/Energy.tscn")
 var redu = true
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
-@onready var deathsound = $"Death Explotion"
-
+@onready var deathsound = $"Death-Explotion"
 var blueexplon = preload("res://blue_explo.tscn")
-
 func _ready():
 	mutat()
 	$Mutation.value = MUTATION
@@ -54,7 +53,9 @@ func _process(_delta):
 func minus(val:int,force:float):
 	HEALTH -= val/int(MUTATION/100)
 	position -= global_position.direction_to($"../Player".position) * force 
-	if HEALTH < 1:
+	if HEALTH < 1 and  live:
+		live = false
+		deathsound.play()
 		get_parent().KILLS += 1 
 		var inc = heal.instantiate()
 		inc.position = global_position
@@ -64,7 +65,7 @@ func minus(val:int,force:float):
 		blueexplotion.position = get_global_position()
 		get_tree().get_root().add_child(blueexplotion)
 		blueexplotion.get_node("AnimationPlayer").play("ExplotionBlue")
-		queue_free()
+		visible = false
 	$HealthBar2D.value = HEALTH
 func _on_timer_timeout():
 	spred = true
