@@ -34,7 +34,7 @@ func _process(_delta):
 		var objs = span.instantiate()
 		objs.position = global_position
 		$"..".add_child(objs)
-	if position.distance_to($"../Player".position) < 600 and position.distance_to($"../Player".position) > 112:
+	if position.distance_to($"../Player".position) < 1100 and position.distance_to($"../Player".position) > 112:
 		$Sprite2D.look_at($"../Player".position)
 		position += ($"../Player".position - position)/300
 		move_and_slide()
@@ -57,6 +57,9 @@ func minus(val:int,force:float):
 		live = false
 		deathsound.play()
 		get_parent().KILLS += 1 
+		get_parent().SCORE += 5 * int(MUTATION/100)
+		$"../CanvasLayer/Score".text = "Score "+str(get_parent().SCORE)
+		$"../CanvasLayer/Kill".text = "Kills "+str(get_parent().KILLS)
 		var inc = heal.instantiate()
 		inc.position = global_position
 		inc.HEAL = inc.HEAL* int(MUTATION/100)

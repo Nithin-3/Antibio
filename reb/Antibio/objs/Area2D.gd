@@ -4,7 +4,7 @@ extends Area2D
 var rand:Vector2 = Vector2(randf_range(-1,1),randf_range(-1,1))
 
 var spawnExplo = preload("res://spawn_enem_blast.tscn")
-
+var live:bool = true
 func destroy():
 	visible = false
 	$AudioStreamPlayer2D.play()
@@ -25,12 +25,15 @@ func _on_audio_stream_player_2d_finished():
 
 
 func _on_body_entered(body):
-	if str(body)[0] == "B":
+	if str(body)[0] == "B" and live:
+		live = false
 		var SpwnExplo = spawnExplo.instantiate()
 		SpwnExplo.position = get_global_position()
 		get_tree().get_root().add_child(SpwnExplo)
 		SpwnExplo.get_node("AnimationPlayer").play("DeadBlast")
 		body.get_parent().destroy()
+		$"..".SCORE += 2.5
+		$"../CanvasLayer/Score".text = "Score "+str(get_parent().SCORE)
 		destroy()
 	if "minus" in body:
 		body.minus(0.5)

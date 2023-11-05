@@ -2,6 +2,7 @@ extends Node2D
 var LEVEL = 1
 @export var ENEMYS_COUNT:int = 0
 @export var KILLS:int = 0
+@export var SCORE:float = 0.0
 var enemy = preload("res://objs/enemy.tscn")
 var player_2 =preload("res://asset/player/Player2.png")
 var player_3 = preload("res://asset/player/Player3.png")
@@ -11,6 +12,8 @@ func _ready():
 
 func lev_strt(level):
 	level = loads()
+	$CanvasLayer/Score.text = "Score "+str(SCORE)
+	$CanvasLayer/Kill.text = "Kills "+str(KILLS)
 	if level == 3:
 		$Player/Sprite2D.texture = player_2
 	if level == 4:
@@ -65,6 +68,7 @@ func loads() -> int:
 		LEVEL = file.get_var(LEVEL)
 		ENEMYS_COUNT = file.get_var(ENEMYS_COUNT)
 		KILLS = file.get_var(KILLS)
+		SCORE = file.get_var(SCORE)
 		return LEVEL
 	else :
 		return 1
@@ -76,3 +80,4 @@ func  save():
 	file.store_var(LEVEL)
 	file.store_var(ENEMYS_COUNT)
 	file.store_var(KILLS)
+	file.store_var(SCORE)
