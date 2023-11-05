@@ -48,7 +48,7 @@ func lev_strt(level):
 func _process(_delta):
 	if (float(KILLS)/float(ENEMYS_COUNT))*100 >= 70.0:
 		LEVEL += 1
-		save(LEVEL)
+		save()
 		lev_strt(LEVEL) 
 
 func _on_timer_timeout():
@@ -69,10 +69,10 @@ func loads() -> int:
 	else :
 		return 1
 	
-func  save(lev:int):
-	if(lev>5):
-		lev = 1
+func  save():
+	if(LEVEL>5):
+		LEVEL = 1
 	var file = FileAccess.open("user://data.nin",FileAccess.WRITE)
-	file.store_var(lev)
+	file.store_var(LEVEL)
 	file.store_var(ENEMYS_COUNT)
 	file.store_var(KILLS)
